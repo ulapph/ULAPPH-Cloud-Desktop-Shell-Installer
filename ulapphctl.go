@@ -153,7 +153,8 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
     for scanner.Scan() {
 		lineCtr++
 		// internally, it advances token based on sperator
-        //fmt.Println(scanner.Text())  // token in unicode-char
+		fmt.Println(fmt.Sprintf("\nLINE: %v", lineCtr))  // token in unicode-char
+		fmt.Println(scanner.Text())  // token in unicode-char
         //fmt.Println(scanner.Bytes()) // token in bytes
 		FL_WRITTEN_OK := false
 		
@@ -403,7 +404,9 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			//loop from configs
 			for _, cfg := range Config.Configs {
 				
-				i = strings.Index(scanner.Text(), cfg.Item)
+				tStr := fmt.Sprintf("%v =", cfg.Item)
+				//i = strings.Index(scanner.Text(), cfg.Item)
+				i = strings.Index(scanner.Text(), tStr)
 				if i != -1 {
 					//-----------------------------
 					//Configuring installation
