@@ -4,7 +4,8 @@ Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 
 ## Pre-requisites
 - Google Cloud Shell or local Unix/Linux access
-- A Google cloud project
+- A Google account such as Gmail
+- A Google cloud project ID
 
 ## STEP 1
 - For the ULAPPH cloud desktop source codes repo to your Github account
