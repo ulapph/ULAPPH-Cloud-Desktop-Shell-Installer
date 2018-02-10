@@ -489,7 +489,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			}
 
 		} else {
-			if len(tLineStr2) > 2 && string(tLineStr2[0]) != "/" && string(tLineStr2[1]) != "/" {
+			if len(tLineStr2) > 2 && string(tLineStr2[0]) == "/" && string(tLineStr2[1]) == "/" {
 				//skip comments
 			} else {
 				buf.WriteString(fmt.Sprintf("%v\n", scanner.Text()))	
