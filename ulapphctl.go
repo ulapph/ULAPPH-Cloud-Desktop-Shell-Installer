@@ -145,7 +145,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	
 	//write buffer
 	var buf bytes.Buffer
-	FL_VALID_FILE := false
+	//FL_VALID_FILE := false
 	FL_START_CUST_CONFIGS := false
 	FL_END_CUST_CONFIGS := false
 	ERR1CTR := 0
@@ -155,7 +155,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 		//check if line is a comment
 		tLineStr := fmt.Sprintf("%v", scanner.Text())
 		tLineStr2 := strings.TrimSpace(tLineStr)
-		if string(tLineStr2[0]) != "/" && string(tLineStr2[1]) != "/" {
+		if len(tLineStr2) > 2 && string(tLineStr2[0]) != "/" && string(tLineStr2[1]) != "/" {
 
 		// internally, it advances token based on sperator
 		fmt.Println(fmt.Sprintf("\nLINE: %v", lineCtr))  // token in unicode-char
@@ -175,7 +175,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				configValue := getFromConfig("APP_URL")
 				buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], configValue))
 				FL_WRITTEN_OK = true
-				FL_VALID_FILE = true
+				//FL_VALID_FILE = true
 				OLD_DOMAIN_NAME = SPL[1]
 				NEW_DOMAIN_NAME = configValue
 			}
@@ -193,7 +193,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				TSTMP := currenttime.Format("02/01/2006 15:04:05")
 				buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], TSTMP))
 				FL_WRITTEN_OK = true
-				FL_VALID_FILE = true
+				//FL_VALID_FILE = true
 			}
 		}
 
@@ -486,9 +486,9 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 		}
 
     	}
-	if FL_VALID_FILE == false {
-		fmt.Printf("\n+ ERROR: Invalid file!!!")
-	}
+	//if FL_VALID_FILE == false {
+	//	fmt.Printf("\n+ ERROR: Invalid file!!!")
+	//}
 	//-----------------------------
 	//Writing modified file
 	fmt.Printf("\n+ Writing modified file...  ")	
