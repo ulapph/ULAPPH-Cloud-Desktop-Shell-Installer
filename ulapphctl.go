@@ -78,7 +78,7 @@ func main() {
 			return nil
 		}
 		installUlapphCloudDesktop(config)
-		fmt.Printf("\nCompleted! Check the modified main3.go now!")
+		fmt.Printf("\nCompleted! Code has been generated!\n")
 		return nil
 	  },
 	},
