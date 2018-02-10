@@ -73,6 +73,12 @@ drwxr-xr-x 1 edwin.d.vinas 1049089      0 Feb 10 06:59  ULAPPH-Cloud-Desktop-She
 
 ## STEP 4
 - If you have no YAML for your project, you may copy the ulapph-demo.yaml
+	* https://github.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer/blob/master/ulapph-demo.yaml
+```
+	wget https://raw.githubusercontent.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer/master/ulapph-demo.yaml
+	cp ulapph-demo.yaml your-project-id.yaml
+```
+## STEP 4a - Populate required YAML fields
 - Populate the below minimum required fields
 - Indicate your project ID
 ```
@@ -104,6 +110,8 @@ configs:
      value: ulapph-demo
 ```
 
+## STEP 4b - Populate optional YAML fields
+- Populate the below optional fields
 - Indicate the server description
 ```
    - item: APP_DESC
@@ -138,17 +146,17 @@ configs:
    - item: ADMIN_ACCOUNT
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: EMAIL_ADD_1
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: EMAIL_ADD_2
      format: Text
      status: Enable
-     value: ctcunanan@gmail.com
+     value: demo.ulapph@gmail.com
 ```
 
 - Also indicate the email accounts here
@@ -156,27 +164,27 @@ configs:
    - item: ADMMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: SYSMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: ADSMAIL
      format: Text
      status: Enable
-     value: ctcunanan@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: REPMAIL
      format: Text
      status: Enable
-     value: edwin.d.vinas@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: FDBKMAIL
      format: Text
      status: Enable
-     value: edwin.d.vinas@gmail.com
+     value: demo.ulapph@gmail.com
 ```
 
 - Indicate which search engines can search your desktop
