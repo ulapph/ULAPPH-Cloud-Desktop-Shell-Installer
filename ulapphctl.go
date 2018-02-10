@@ -405,7 +405,6 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			for _, cfg := range Config.Configs {
 				
 				tStr := fmt.Sprintf("%v =", cfg.Item)
-				//i = strings.Index(scanner.Text(), cfg.Item)
 				i = strings.Index(scanner.Text(), tStr)
 				if i != -1 {
 					//-----------------------------
