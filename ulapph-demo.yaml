@@ -1,0 +1,1094 @@
+project:
+   - name: ULAPPH Cloud Desktop
+     appid: ulapph-demo
+
+installer:
+   - dir: ../ULAPPH-Cloud-Desktop-1
+
+configs: 
+   - item: APP_URL
+     format: Text
+     status: Enable
+     value: ulapph-demo.appspot.com
+
+   - item: DOMAIN_NAME
+     format: Text
+     status: Enable
+     value: 
+
+   - item: ADMIN_ACCOUNT
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: EMAIL_ADD_1
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: EMAIL_ADD_2
+     format: Text
+     status: Enable
+     value: ctcunanan@gmail.com
+
+   - item: EMAIL_ADD_3
+     format: Text
+     status: Enable
+     value: 
+
+   - item: SYS_DOWN_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_CHG_HTTPS
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_HTTPS
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_SUPER_USER
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_UNINSTALL_KEY
+     format: Text
+     status: Enable
+     value: abcDEF1234567890
+
+   - item: SYS_DEFAULT_MENU_GIT
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/ULAPPH%20Cloud%20Desktop%20System%20Start%20Menu
+
+   - item: DEFAULT_DOWN_URL
+     format: Text
+     status: Enable
+     value: /img/overquota.png
+
+   - item: ADMMAIL
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: SYSMAIL
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: ADSMAIL
+     format: Text
+     status: Enable
+     value: ctcunanan@gmail.com
+
+   - item: REPMAIL
+     format: Text
+     status: Enable
+     value: edwin.d.vinas@gmail.com
+
+   - item: FDBKMAIL
+     format: Text
+     status: Enable
+     value: edwin.d.vinas@gmail.com
+
+   - item: SYS_SERVER_NAME
+     format: Text
+     status: Enable
+     value: ulapph-demo
+
+   - item: APP_DESC
+     format: Text
+     status: Enable
+     value: ULAPPH Demo
+
+   - item: SYS_SITE_PRIVATE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_DISP_HOMEPAGE_CFG
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CUSTOM_HOME_THEME
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_ENABLE_TEMPLATES
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CHAT_REDIR
+     format: Text
+     status: Enable
+     value: 
+
+   - item: SYS_CHAT_PUB_ROOM_ID
+     format: Text
+     status: Enable
+     value: zrmve7fvfjtiy0tzno2alwwm9ydy8hf4
+
+   - item: SYS_CHAT_WORLD_ROOM_ID
+     format: Text
+     status: Enable
+     value: q8bgfhevlwt55sxa89jw6mgqmp1vt286gubibaaiwfp4kuadahji3ikzngp8e7lc
+
+   - item: SYS_CHAT_COUNTRY_ROOM_ID
+     format: Text
+     status: Enable
+     value: urog29rjwlyarewzcnnjhurjhykakg8lsan4rzxhcqaiswi3hetzr9r2juknpejo
+
+   - item: SYS_CHAT_HELP
+     format: Text
+     status: Enable
+     value: https://goo.gl/vX4wdC
+
+   - item: SYS_REGISTRATION_MANUAL
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_AUTO_REG_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_DISP_URL_BELIEF
+     format: Text
+     status: Enable
+     value: /bible?BIB_FUNC=biblegateway
+
+   - item: SYS_DISP_MOTD
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CHK_AUTO_SL2ART
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_DISP_ADS_CONTENT
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_DISP_ADS_HOST
+     format: Text
+     status: Enable
+     value: 
+
+   - item: SYS_TUTORIALS_CHANNEL
+     format: Text
+     status: Enable
+     value: https://goo.gl/UnWu5I
+
+   - item: SYS_DISP_ADS_RIGHT
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_LOG_ADS_VIEW_MAIL
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_LOG_ADS_VIEWS
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_LOG_ACTIVITY
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_REALTIME_NOTIFS
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_MSG_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_MSG_CHRT_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_MSG_CHRT_NOTIFY_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_MSG_CHRT_CHAT_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_INV_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_INQ_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_FBK_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_PRE_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_GEN_MAIL_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_SHR_MAIL_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_SEND_REPORTS_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_SEND_RPT_1_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_APP_CACHE_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_MEM_CACHE_ENABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CHECK_REFERER
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CHECK_COUNTRY
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CHECK_OK_TO_TUN
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_EARTHQUAKE_MON
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_EQ_MON_MSG
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_EXT_SEARCHABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_SEARCHABLE
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_CSE_ENABLED
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_SEARCH_BEF_TIME
+     format: Text
+     status: Enable
+     value: 05:00:00
+
+   - item: var isSearchEngineAllowed
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"US.?.?":false,"CN.?.?":false,"RU.?.?":false,"UA.?.?":false,"MX.?.?":false,"TM.?.?":false,}
+
+
+   - item: var isCountryNotAllowed
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"RU":false,}
+
+   - item: var isCountryAllowed
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"PH":true,"US":true,}
+
+   - item: SYS_GUEST_CHAT_URL
+     format: Text
+     status: Enable
+     value: https://goo.gl/lBasrn
+
+   - item: SYS_UWM_EXPANDED
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_GUEST_LOGIN
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_GUEST_UWM
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_ACTION_WANT_OWN
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SYS_DISP_AUTHOR
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_DISP_ABOUT
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_DISP_LOGO
+     format: Text
+     status: Enable
+     value: http://lh3.googleusercontent.com/lj4uOs3pT_h4R0iZSDUWBuRftqvKrp71rNes8hHeBA0TMaIRnLOQVBf3Azm9ff9JRah6x8YHV_HV-VkImUGdm_OZJcBVOQ
+
+   - item: SYS_SYNC_NOTE_MAIL
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: DEFAULT_NEWS_DOC_ID
+     format: Number
+     status: Enable
+     value: 17
+
+   - item: DEFAULT_NEWS_ARCHIVE_DOC_ID
+     format: Number
+     status: Enable
+     value: 18
+
+   - item: DEFAULT_NUM_TILES_TOP
+     format: Number
+     status: Enable
+     value: 50
+
+   - item: ADS_EVERY_X_SLIDES
+     format: Number
+     status: Enable
+     value: 3
+
+   - item: MC_ADS_EXPIRES_30_MIN
+     format: Number
+     status: Enable
+     value: 1800
+
+   - item: MC_PEOPLE_EXPIRES_5_MIN
+     format: Number
+     status: Enable
+     value: 300
+
+   - item: MC_PEOPLE_EXPIRES_10_MIN
+     format: Number
+     status: Enable
+     value: 600
+
+   - item: TOT_ONLINE_EXPIRES_MIN
+     format: Number
+     status: Enable
+     value: 1800
+
+   - item: GEN_CONTENT_EXPIRES
+     format: Number
+     status: Enable
+     value: 3600
+
+   - item: DEFAULT_DESKTOP_ICONS
+     format: Text
+     status: Enable
+     value: desktop0,619,625,746,748,742,440,862,615,566,567,682,567,667,583,621
+
+   - item: MAX_DOCK_ICONS
+     format: Number
+     status: Enable
+     value: 11
+
+   - item: DEFAULT_REFRESH_ADS_BOX
+     format: Number
+     status: Enable
+     value: 300
+
+   - item: MAX_DRAG_DROP_FILES
+     format: Number
+     status: Enable
+     value: 15
+
+   - item: CHAN_HOURS_EXPR
+     format: Number
+     status: Enable
+     value: 6
+
+   - item: CHAT_ROOM_HOURS_EXPR
+     format: Number
+     status: Enable
+     value: 6
+
+   - item: LOGIN_HOURS_EXPR
+     format: Number
+     status: Enable
+     value: 6
+
+   - item: MAX_URL_FETCH_LINES
+     format: Number
+     status: Enable
+     value: 1000
+
+   - item: DEFAULT_RING_TONE
+     format: Text
+     status: Enable
+     value: /audio/pop.wav
+
+   - item: DEFAULT_CHAT_TONE
+     format: Text
+     status: Enable
+     value: /audio/pop.wav
+
+   - item: DEFAULT_SLIDE_TONE
+     format: Text
+     status: Enable
+     value: /audio/page-flip-15.wav
+
+   - item: SLIDE_SOUND_SET
+     format: Text
+     status: Enable
+     value: ON
+
+   - item: SYS_WALLP_ADMIN_ONLY
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: FIXED_WALLPAPER_IMG
+     format: Text
+     status: Enable
+     value: 
+
+   - item: maxBubblesOnline
+     format: Number
+     status: Enable
+     value: 30
+
+   - item: maxTDSCNFGSaveTB
+     format: Number
+     status: Enable
+     value: 50
+
+   - item: MOTD_1_mediaID
+     format: Number
+     status: Enable
+     value: 688
+
+   - item: MOTD_1_name
+     format: Text
+     status: Enable
+     value: Quotations
+
+   - item: MOTD_2_mediaID
+     format: Number
+     status: Enable
+     value: 689
+
+   - item: MOTD_2_name
+     format: Text
+     status: Enable
+     value: Bible
+
+   - item: MOTD_3_mediaID
+     format: Number
+     status: Enable
+     value: 690
+
+   - item: MOTD_3_name
+     format: Text
+     status: Enable
+     value: Jokes
+
+   - item: MOTD_4_mediaID
+     format: Number
+     status: Enable
+     value: 691
+
+   - item: MOTD_4_name
+     format: Text
+     status: Enable
+     value: Saving
+
+   - item: MOTD_5_mediaID
+     format: Number
+     status: Enable
+     value: 692
+
+   - item: MOTD_5_name
+     format: Text
+     status: Enable
+     value: Blogging
+
+   - item: MOTD_6_mediaID
+     format: Number
+     status: Enable
+     value: 693
+
+   - item: MOTD_6_name
+     format: Text
+     status: Enable
+     value: Fitness & Health
+
+   - item: MOTD_7_mediaID
+     format: Number
+     status: Enable
+     value: 694
+
+   - item: MOTD_7_name
+     format: Text
+     status: Enable
+     value: Programming
+
+   - item: MOTD_8_mediaID
+     format: Number
+     status: Enable
+     value: 695
+
+   - item: MOTD_8_name
+     format: Text
+     status: Enable
+     value: Interview
+
+   - item: MOTD_9_mediaID
+     format: Number
+     status: Enable
+     value: 696
+
+   - item: MOTD_9_name
+     format: Text
+     status: Enable
+     value: Business
+
+   - item: MOTD_10_mediaID
+     format: Number
+     status: Enable
+     value: 697
+
+   - item: MOTD_10_name
+     format: Text
+     status: Enable
+     value: Life
+
+   - item: MOTD_11_mediaID
+     format: Number
+     status: Enable
+     value: 698
+
+   - item: MOTD_11_name
+     format: Text
+     status: Enable
+     value: TableTopics
+
+   - item: MOTD_12_mediaID
+     format: Number
+     status: Enable
+     value: 702
+
+   - item: MOTD_12_name
+     format: Text
+     status: Enable
+     value: People
+
+   - item: MOTD_13_mediaID
+     format: Number
+     status: Enable
+     value: 701
+
+   - item: MOTD_13_name
+     format: Text
+     status: Enable
+     value: Invention
+
+   - item: MOTD_14_mediaID
+     format: Number
+     status: Enable
+     value: 703
+
+   - item: MOTD_14_name
+     format: Text
+     status: Enable
+     value: Timeline
+
+   - item: MOTD_15_mediaID
+     format: Number
+     status: Enable
+     value: 700
+
+   - item: MOTD_15_name
+     format: Text
+     status: Enable
+     value: GeneralInfo
+
+   - item: MOTD_16_mediaID
+     format: Number
+     status: Enable
+     value: 699
+
+   - item: MOTD_16_name
+     format: Text
+     status: Enable
+     value: Culture
+
+   - item: LATEST_ARTICLES_SLIDES_BG
+     format: Text
+     status: Enable
+     value: /img/background19.png
+
+   - item: PINNED_ARTICLES_SLIDES_BG
+     format: Text
+     status: Enable
+     value: /img/background12.jpg
+
+   - item: TOP_ARTICLES_SLIDES_BG
+     format: Text
+     status: Enable
+     value: /img/background10.jpg
+
+   - item: <title>
+     format: Text
+     status: InternalMatched
+     value: ULAPPH - Demo - ULAPPH Cloud Desktop
+
+   - item: <meta description>
+     format: Text
+     status: InternalMatched
+     value: ULAPPH Cloud Desktop of Demo Project
+
+   - item: <meta keywords>
+     format: Text
+     status: InternalMatched
+     value: ULAPPH - Demo Cloud Desktop
+
+   - item: INFO_ABOUT_US
+     format: Text
+     status: Enable
+     value: This is a demo project powered by ULAPPH Cloud Desktop!
+
+   - item: SITE_SLOGAN
+     format: Text
+     status: Enable
+     value: We will only live once in this world. Anything we need to do must be done. So let us do it now!
+
+   - item: ADDTL_QUOTA_ERR_MSG
+     format: Text
+     status: Enable
+     value: This application will be up again at around 3:30 - 4:30PM PST.
+
+   - item: var isExceptionAccount
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"ulapph@gmail.com":true,}
+
+   - item: var freeAccess
+     format: Text
+     status: InternalMatched
+     value: map[string]int{"QUOTA_SLIDES":5,"QUOTA_ARTICLES":5,"QUOTA_MEDIA":50,"QUOTA_MSG_IN":100,"QUOTA_MSG_OUT":100,}
+
+   - item: var bronzeAccess
+     format: Text
+     status: InternalMatched
+     value: map[string]int{"QUOTA_SLIDES":50,"QUOTA_ARTICLES":50,"QUOTA_MEDIA":500,"QUOTA_MSG_IN":500,"QUOTA_MSG_OUT":500,}
+
+   - item: var silverAccess
+     format: Text
+     status: InternalMatched
+     value: map[string]int{"QUOTA_SLIDES":500,"QUOTA_ARTICLES":500,"QUOTA_MEDIA":1000,"QUOTA_MSG_IN":1000,"QUOTA_MSG_OUT":1000,}
+
+   - item: var goldAccess
+     format: Text
+     status: InternalMatched
+     value: map[string]int{"QUOTA_SLIDES":5000,"QUOTA_ARTICLES":5000,"QUOTA_MEDIA":10000,"QUOTA_MSG_IN":10000,"QUOTA_MSG_OUT":10000,}
+
+   - item: SYS_MAX_SOC_COMMENTS
+     format: Number
+     status: Enable
+     value: 100
+
+   - item: SYS_REFERRAL_ID
+     format: Text
+     status: Enable
+     value: mdbzuqkihfti6mda2szyeqoxws0czqc1v5vwtwf2zkuqugt8oxnmgshpjz4i65op
+
+   - item: SYS_BYPASS_PRIV_KEY
+     format: Text
+     status: Enable
+     value: 6LcvMwoUAAAAAPsrpukBmQ5vocDI7y1234567890
+
+   - item: SYS_RECAPTCHA_KEY
+     format: Text
+     status: Enable
+     value: 6LcvMwoUAAAAAPsrpukBmQ5vocDI7y1K7-iSTRCM
+
+   - item: SYS_RECAPTCHA_SECRET
+     format: Text
+     status: Enable
+     value: 6LcvMwoUAAAAAD167zglxfgQ_1wsYyaDceXhy_Nt
+
+   - item: SYS_DISP_SEARCH
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: SOCIAL_LINK_PLUS
+     format: Text
+     status: Enable
+     value: https://plus.google.com/115284716891040341549/posts/p/pub
+
+   - item: SOCIAL_LINK_YOUTUBE
+     format: Text
+     status: Enable
+     value: https://www.youtube.com/channel/UClFiPiqztKTk0Gu3p8R8ewg
+
+   - item: SOCIAL_LINK_FB
+     format: Text
+     status: Enable
+     value: https://www.facebook.com/yourlink
+
+   - item: SOCIAL_LINK_LINKEDIN
+     format: Text
+     status: Enable
+     value: https://ph.linkedin.com/in/yourlink
+
+   - item: SOCIAL_LINK_TWITTER
+     format: Text
+     status: Enable
+     value: https://twitter.com/yourlink
+
+   - item: SYS_ADD_THIS_PUB_ID
+     format: Text
+     status: Enable
+     value: ra-57db4059789a4643
+
+   - item: GA_AD_SERVE
+     format: Flag
+     status: Enable
+     value: false
+
+   - item: GA_AD_CODE_RESP
+     format: Text
+     status: Enable
+     value: 
+
+   - item: GA_AD_CODE_FTR
+     format: Text
+     status: Enable
+     value: 
+
+   - item: GA_AD_CODE_TBR
+     format: Text
+     status: Enable
+     value: 
+
+   - item: GA_AD_CODE_SDW
+     format: Text
+     status: Enable
+     value: 
+
+   - item: SEMAPHORE_API_KEY
+     format: Text
+     status: Enable
+     value: asVGeG3Jxe7GcQdbz123
+
+   - item: SEMAPHORE_SENDER_NAME
+     format: Text
+     status: Enable
+     value: ULAPPH
+
+   - item: SMS_CONTACT_NBR
+     format: Text
+     status: Enable
+     value: 09298172426
+
+   - item: EXT_SEARCH_GEN_KEY
+     format: Text
+     status: Enable
+     value: 6pt90h4f3qwcbgclwkql6vseucunzzkkg3q6g5cttjmxpce9h1234567890
+
+   - item: CMD_GEN_KEY
+     format: Text
+     status: Enable
+     value: 6pt90h4f3qwcbgclwkql6vseucunzzkkg3q6g5cttjmxpce9hfvl4l1234567890
+
+   - item: CMD_API_KEY
+     format: Text
+     status: Enable
+     value: 5ygfb3cok3021qhzoeeyythe1234567890
+
+   - item: THINGS_API_KEY
+     format: Text
+     status: Enable
+     value: veaimtcon0srgb6jl7xdcqw91234567890
+
+   - item: ENCRYPTION_KEY
+     format: Text
+     status: Enable
+     value: #%@%#&&*$(()&^
+
+   - item: apiKeyUs
+     format: Text
+     status: Enable
+     value: AIzaSyDY93rCNZv_IXLUaz0aRWhX61234567890
+
+   - item: YOUTUBE_DEVELOPER_KEY
+     format: Text
+     status: Enable
+     value: AIzaSyDAcog64LHTqpjgACEXp3k9B71234567890
+
+   - item: FIREBASE_URL
+     format: Text
+     status: Enable
+     value: https://ulapph-firebase.firebaseio.com
+
+   - item: FIREBASE_SERVER_JSON
+     format: Text
+     status: Enable
+     value: ../ULAPPH-Cloud-Desktop-Configs/ulapph-firebase-153e4ca29b86.json
+
+   - item: GOOGLE_OAUTH2_CLIENTID
+     format: Text
+     status: Enable
+     value: 255989709567-b3t28gslv0vuo31234567890.apps.googleusercontent.com
+
+   - item: GOOGLE_OAUTH2_SECRET
+     format: Text
+     status: Enable
+     value: lW010-8VkOZj_x_12314567890
+
+   - item: GOOGLE_OAUTH2_AUTH
+     format: Text
+     status: Enable
+     value: https://accounts.google.com/o/oauth2/auth
+
+   - item: GOOGLE_OAUTH2_TOKEN
+     format: Text
+     status: Enable
+     value: https://accounts.google.com/o/oauth2/token
+
+   - item: GOOGLE_OAUTH2_STATE
+     format: Text
+     status: Enable
+     value: 115vvjp8kvwqrjnvbmoc0btd1234567890
+
+   - item: ADMIN_OAUTH2_CLIENTID
+     format: Text
+     status: Enable
+     value: 176777409325-vj412ou1mgrjcn9171234567890.apps.googleusercontent.com 
+
+   - item: ADMIN_OAUTH2_SECRET
+     format: Text
+     status: Enable
+     value: DCfUCEvNszKNN6x1234567890
+
+   - item: GITHUB_USER_NAME
+     format: Text
+     status: Enable
+     value: edwindvinas
+
+   - item: GITHUB_AUTH_URL
+     format: Text
+     status: Enable
+     value: https://github.com/login/oauth/authorize
+
+   - item: GITHUB_TOKEN_URL
+     format: Text
+     status: Enable
+     value: https://github.com/login/oauth/access_token
+
+   - item: GITHUB_CLIENT_ID
+     format: Text
+     status: Enable
+     value: a0862d07437d1234567890
+
+   - item: GITHUB_CLIENT_SECRET
+     format: Text
+     status: Enable
+     value: 54499413716d7aa502f6ef1234567890
+
+   - item: GITHUB_OAUTH2_STATE
+     format: Text
+     status: Enable
+     value: 115vvjp8kvwqrjnvbmoc0bt1234567890
+
+   - item: PAYPAL_PREMIUM_COST
+     format: Text
+     status: Enable
+     value: 100.00
+
+   - item: PAYPAL_CURRENCY
+     format: Text
+     status: Enable
+     value: PHP
+
+   - item: PAYPAL_MERCHANT_ID
+     format: Text
+     status: Enable
+     value: Q5BH8YRV1234567890
+
+   - item: GITURL_AUTOCOMP_LIST
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/AUTOCOMPLETE/general
+
+   - item: GITURL_PUSH_LEFT
+     format: Text
+     status: Enable
+     value: 
+
+   - item: GITURL_PUSH_RIGHT
+     format: Text
+     status: Enable
+     value: 
+
+   - item: GITURL_PUSH_TOP
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/PUSH_MENU/general_top
+
+   - item: GITURL_PUSH_BOTTOM
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/PUSH_MENU/general_bottom
+
+   - item: APP_LEFT_BUTTON
+     format: Text
+     status: Enable
+     value: Slides
+
+   - item: APP_RIGHT_BUTTON
+     format: Text
+     status: Enable
+     value: Articles
+
+   - item: APP_TOP_BUTTON
+     format: Text
+     status: Enable
+     value: Help
+
+   - item: APP_BOTTOM_BUTTON
+     format: Text
+     status: Enable
+     value: About
+
+   - item: APP_PLAY_BUTTON
+     format: Text
+     status: Enable
+     value: Index
+
+   - item: SOCIAL_FB_COMMENT_ON
+     format: Text
+     status: Enable
+     value: N
+
+   - item: PAGE_ACCESS_DISP_ON
+     format: Text
+     status: Enable
+     value: N
+
+   - item: LAST_PAGE_DISP_ON
+     format: Text
+     status: Enable
+     value: N
+
+   - item: SYS_OPEN_AUTO
+     format: Text
+     status: Enable
+     value: Y
+
+   - item: SYS_CONTENTS_HDR_ON
+     format: Text
+     status: Enable
+     value: N
+
+   - item: SYS_AJAX_LOAD_ON
+     format: Text
+     status: Enable
+     value: N
+
+   - item: SYS_CON_TRIM_TITLE
+     format: Number
+     status: Enable
+     value: 23
+
+   - item: SYS_UWM_RAN_COLORS
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_SLIDE_COLOR
+     format: Text
+     status: Enable
+     value: #3B653D
+
+   - item: SYS_SLIDE_FROM
+     format: Text
+     status: Enable
+     value: #f5f5f5
+
+   - item: SYS_SLIDE_TO
+     format: Text
+     status: Enable
+     value: #f5f5dc
+
+   - item: GITURL_PROVIDER_MSFT
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/PROVIDERS/Microsoft
+
+   - item: GITURL_PROVIDER_DB
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/PROVIDERS/Dropbox
+
+   - item: GITURL_PROVIDER_GOGL
+     format: Text
+     status: Enable
+     value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/PROVIDERS/Google
+
