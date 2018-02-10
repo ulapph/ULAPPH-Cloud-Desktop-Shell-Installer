@@ -75,10 +75,10 @@ func main() {
 		if config == "" {
 			fmt.Printf("ERROR: Missing configuration file!")
 			fmt.Printf("\nTry: ulapphctl install --config your-ulapph-cloud-desktop.yaml")
-			
 			return nil
 		}
 		installUlapphCloudDesktop(config)
+		fmt.Printf("\nCompleted! Check the modified main3.go now!")
 		return nil
 	  },
 	},
