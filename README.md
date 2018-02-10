@@ -28,6 +28,26 @@ Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 	which ulapphctl
 	/home/ulapph/gopath/bin/ulapphctl
 	ulapphctl help
+	
+	NAME:
+	   ulapphctl - A new cli application
+
+	USAGE:
+	   ulapphctl [global options] command [command options] [arguments...]
+
+	VERSION:
+	   0.0.0
+
+	COMMANDS:
+	     install, i  install ulapph cloud desktop
+	     upgrade, u  upgrade an existing ulapph cloud desktop
+	     help, h     Shows a list of commands or help for one command
+
+	GLOBAL OPTIONS:
+	   --config value, -c value  Configuration file for the ulapph cloud destkop
+	   --help, -h                show help
+	   --version, -v             print the version
+   
 ```
 
 ## STEP 3
