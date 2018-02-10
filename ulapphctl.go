@@ -406,6 +406,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 		//Process config values
 		if FL_START_CUST_CONFIGS == true && FL_END_CUST_CONFIGS == false {
 			
+			fmt.Printf("\nLINE: %v", scanner.Text())
 			//loop from configs
 			for _, cfg := range Config.Configs {
 				
