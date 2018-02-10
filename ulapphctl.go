@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"github.com/jinzhu/configor"
 	"os/exec"
-    "os"
-    "log"
-    "bufio"
+    	"os"
+    	"log"
+    	"bufio"
 	"strings"
 	"bytes"
 	"io/ioutil"
@@ -110,19 +110,19 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	//-----------------------------
 	//Backup main.go
 	fmt.Printf("\n+ Backup main.go to main2.go...  ")
-    app := "cp"
+    	app := "cp"
 	currenttime := time.Now().Local()
 	TSTMP := currenttime.Format("2006-01-02-15-04-05")	
-    arg1 := Config.Installer[0].Dir+"/main.go"
-    arg2 := Config.Installer[0].Dir+"/main.go"+"."+TSTMP
+    	arg1 := Config.Installer[0].Dir+"/main.go"
+    	arg2 := Config.Installer[0].Dir+"/main.go"+"."+TSTMP
 
-    cmd := exec.Command(app, arg1, arg2)
-    stdout, err := cmd.Output()
+    	cmd := exec.Command(app, arg1, arg2)
+    	stdout, err := cmd.Output()
 
-    if err != nil {
+    	if err != nil {
         println(err.Error())
         return
-    } else {
+    	} else {
 		stdout = []byte("ok")
 	}
 	print(string(stdout))
@@ -130,17 +130,17 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	//-----------------------------
 	//Configuring installation
 	fmt.Printf("\n+ Customizing main.go...  ")
-    file, err := os.Open(Config.Installer[0].Dir+"/main.go")
-    if err != nil {
+    	file, err := os.Open(Config.Installer[0].Dir+"/main.go")
+    	if err != nil {
         log.Fatal(err)
 		stdout = []byte(fmt.Sprintf("%v",err))
-    } else {
+    	} else {
 		stdout = []byte("ok")
 	}
 	print(string(stdout))
-    defer file.Close()
+    	defer file.Close()
 
-    scanner := bufio.NewScanner(file)
+    	scanner := bufio.NewScanner(file)
 	lineCtr := 0
 	
 	//write buffer
@@ -150,14 +150,12 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	FL_END_CUST_CONFIGS := false
 	ERR1CTR := 0
 	
-    for scanner.Scan() {
+    	for scanner.Scan() {
 		lineCtr++
 		//check if line is a comment
 		tLineStr := fmt.Sprintf("%v", scanner.Text())
 		tLineStr2 := strings.TrimSpace(tLineStr)
-		if string(tLineStr2[0]) == "/" && string(tLineStr2[1]) == "/" {
-			continue
-		}
+		if string(tLineStr2[0]) != "/" && string(tLineStr2[1]) != "/" {
 
 		// internally, it advances token based on sperator
 		fmt.Println(fmt.Sprintf("\nLINE: %v", lineCtr))  // token in unicode-char
@@ -482,18 +480,20 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			buf.WriteString(fmt.Sprintf("%v\n", scanner.Text()))
 		}
 
-    }
+		}
+
+    	}
 	if FL_VALID_FILE == false {
 		fmt.Printf("\n+ ERROR: Invalid file!!!")
 	}
 	//-----------------------------
 	//Writing modified file
 	fmt.Printf("\n+ Writing modified file...  ")	
-    err = ioutil.WriteFile(Config.Installer[0].Dir+"/main3.go", buf.Bytes(), 0644)
-    if err != nil {
+    	err = ioutil.WriteFile(Config.Installer[0].Dir+"/main3.go", buf.Bytes(), 0644)
+    	if err != nil {
         log.Fatal(err)
 		stdout = []byte(fmt.Sprintf("%v",err))
-    } else {
+    	} else {
 		stdout = []byte("ok")
 	}
 	print(string(stdout))
