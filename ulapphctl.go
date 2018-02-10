@@ -409,9 +409,11 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			//loop from configs
 			for _, cfg := range Config.Configs {
 				
-				tStr := fmt.Sprintf("%v =", cfg.Item)
-				i = strings.Index(scanner.Text(), tStr)
-				if i != -1 {
+				//tStr := fmt.Sprintf("%v =", cfg.Item)
+				//i = strings.Index(scanner.Text(), tStr)
+				SPL := strings.Split(scanner.Text(), "=")
+				if strings.TrimSpace(SPL[0]) == cfg.Item {
+				//if i != -1 {
 					//-----------------------------
 					//Configuring installation
 					fmt.Printf("\n++ Processing cfg.Item...  ")
