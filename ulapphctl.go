@@ -357,6 +357,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				currenttime := time.Now().Local()
 				TSTMP := currenttime.Format("2006-01-02-15-04-05")	
 				buf.WriteString(fmt.Sprintf("    UCD_BUILD_STR = `BUILD_%v`", TSTMP))
+				buf.WriteString("\n")
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
