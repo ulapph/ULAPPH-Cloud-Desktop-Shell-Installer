@@ -152,6 +152,13 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	
     for scanner.Scan() {
 		lineCtr++
+		//check if line is a comment
+		tLineStr := fmt.Sprintf("%v", scanner.Text())
+		tLineStr2 := strings.TrimSpace(tLineStr)
+		if string(tLineStr2[0]) == "/" && string(tLineStr2[1]) == "/" {
+			continue
+		}
+
 		// internally, it advances token based on sperator
 		fmt.Println(fmt.Sprintf("\nLINE: %v", lineCtr))  // token in unicode-char
 		fmt.Println(scanner.Text())  // token in unicode-char
