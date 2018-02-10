@@ -17,8 +17,16 @@ Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 	- https://github.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer
 ```
 	git clone https://github.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer.git
+	
 	cd ULAPPH-Cloud-Desktop-Shell-Installer
+	go get github.com/jinzhu/configor
+	go get github.com/urfave/cli
+	
+	export GOBIN=/home/ulapph/gopath/bin
+	
 	go install ulapphctl.go
+	which ulapphctl
+	/home/ulapph/gopath/bin/ulapphctl
 	ulapphctl help
 ```
 
