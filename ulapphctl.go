@@ -422,6 +422,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 							num, err := strconv.Atoi(cfg.Value)
 							if err != nil {
 								fmt.Printf("\nERROR: %v", cfg)
+								panic(err)
 								break
 							}
 							buf.WriteString(fmt.Sprintf("    %v = %v\n", cfg.Item, num))
@@ -432,6 +433,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 								if err != nil {
 									//fmt.Print(err)
 									fmt.Printf("\nERROR: %v", err)
+									panic(err)
 									break
 								}
 								buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, string(b)))
