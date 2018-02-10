@@ -154,6 +154,8 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	FL_START_CUST_CONFIGS := false
 	FL_END_CUST_CONFIGS := false
 	ERR1CTR := 0
+	buf.WriteString("//ULAPPH Cloud Desktop\n")
+	buf.WriteString(fmt.Sprintf("//Auto-generated codes for %v\n", Config.Project[0].Appid))
 	
     	for scanner.Scan() {
 		lineCtr++
