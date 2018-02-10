@@ -9,12 +9,12 @@ Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 
 ## STEP 1
 - For the ULAPPH cloud desktop source codes repo to your Github account
-	https://github.com/accenture/ULAPPH-Cloud-Desktop#fork-destination-box
+	- https://github.com/accenture/ULAPPH-Cloud-Desktop#fork-destination-box
 - If you have existing repo or dont want to fork, go to step 2
 
 ## STEP 2
 - Download the shell installer repo to your local computer
-	https://github.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer
+	- https://github.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer
 ```
 	git clone https://github.com/ulapph/ULAPPH-Cloud-Desktop-Shell-Installer.git
 	cd ULAPPH-Cloud-Desktop-Shell-Installer
