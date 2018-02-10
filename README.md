@@ -71,5 +71,164 @@ drwxr-xr-x 1 edwin.d.vinas 1049089      0 Feb 10 06:59  ULAPPH-Cloud-Desktop-She
 	- You have created a directory "ULAPPH-Cloud-Desktop-Configs" where you will put the yaml files
 	- The cloned shell installer are in "ULAPPH-Cloud-Desktop-Shell-Installer"
 
+## STEP 4
+- If you have no YAML for your project, you may copy the ulapph-demo.yaml
+- Populate the below minimum required fields
+- Indicate your project ID
+```
+project:
+   - name: ULAPPH Cloud Desktop
+     appid: ulapph-demo <-- your project ID
+```
+
+- Indicate the path to the ULAPPH Cloud Desktop installer
+```
+installer:
+   - dir: ../ULAPPH-Cloud-Desktop-1
+```
+
+- Indicate the application URL
+```
+configs: 
+   - item: APP_URL
+     format: Text
+     status: Enable
+     value: ulapph-demo.appspot.com
+```
+
+- Indicate the server name
+```
+   - item: SYS_SERVER_NAME
+     format: Text
+     status: Enable
+     value: ulapph-demo
+```
+
+- Indicate the server description
+```
+   - item: APP_DESC
+     format: Text
+     status: Enable
+     value: ULAPPH Demo
+```
+
+- Indicate if the desktop is public or private
+```
+   - item: SYS_SITE_PRIVATE
+     format: Flag
+     status: Enable
+     value: true
+```
+
+- Indicate if users can register to your desktop or manual only
+```
+   - item: SYS_REGISTRATION_MANUAL
+     format: Flag
+     status: Enable
+     value: true
+
+   - item: SYS_AUTO_REG_ENABLE
+     format: Flag
+     status: Enable
+     value: false
+```
+
+- Indicate the valid email account
+```
+   - item: ADMIN_ACCOUNT
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: EMAIL_ADD_1
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: EMAIL_ADD_2
+     format: Text
+     status: Enable
+     value: ctcunanan@gmail.com
+```
+
+- Also indicate the email accounts here
+```
+   - item: ADMMAIL
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: SYSMAIL
+     format: Text
+     status: Enable
+     value: ulapph@gmail.com
+
+   - item: ADSMAIL
+     format: Text
+     status: Enable
+     value: ctcunanan@gmail.com
+
+   - item: REPMAIL
+     format: Text
+     status: Enable
+     value: edwin.d.vinas@gmail.com
+
+   - item: FDBKMAIL
+     format: Text
+     status: Enable
+     value: edwin.d.vinas@gmail.com
+```
+
+- Indicate which search engines can search your desktop
+```
+   - item: var isSearchEngineAllowed
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"US.?.?":false,"CN.?.?":false,"RU.?.?":false,"UA.?.?":false,"MX.?.?":false,"TM.?.?":false,}
+```
+
+- Indicate which countries can access your desktop
+```
+   - item: var isCountryNotAllowed
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"RU":false,}
+
+   - item: var isCountryAllowed
+     format: Text
+     status: InternalMatched
+     value: map[string]bool{"PH":true,"US":true,}
+```
+
+- Indicate your cloud website meta details
+```
+   - item: <title>
+     format: Text
+     status: InternalMatched
+     value: ULAPPH - Demo - ULAPPH Cloud Desktop
+
+   - item: <meta description>
+     format: Text
+     status: InternalMatched
+     value: ULAPPH Cloud Desktop of Demo Project
+
+   - item: <meta keywords>
+     format: Text
+     status: InternalMatched
+     value: ULAPPH - Demo Cloud Desktop
+
+   - item: INFO_ABOUT_US
+     format: Text
+     status: Enable
+     value: This is a demo project powered by ULAPPH Cloud Desktop!
+
+   - item: SITE_SLOGAN
+     format: Text
+     status: Enable
+     value: We will only live once in this world. Anything we need to do must be done. So let us do it now!
+```
+
+- Other configurations are optional...
+
 ## Contacts
 - Gmail account: edwin.d.vinas@gmail.com
