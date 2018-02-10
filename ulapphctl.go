@@ -4,11 +4,11 @@
 // COPYRIGHT (c) 2014-2017 Edwin D. Vinas, Ulapph Cloud Desktop System
 // COPYRIGHT (c) 2017-2018 Accenture, Opensource Version
 /////////////////////////////////////////////////////////////////////////////////////////////////
-//REV ID: 		D0001
+//REV ID: 	D0001
 //REV DATE: 	2017-Feb-10
-//REV DESC:		Created initial installer via Google Cloud Shell
-//REV AUTH:		Edwin D. Vinas
-//REV_REF:		https://github.com/jinzhu/configor
+//REV DESC:	Created initial installer via Google Cloud Shell
+//REV AUTH:	Edwin D. Vinas
+//REV_REF:	https://github.com/jinzhu/configor
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // ulapphctl --config "../ULAPPH-Cloud-Desktop-Configs/edwin-daen-vinas.yaml" install
@@ -38,11 +38,9 @@ var Config = struct {
 		Date string
 		Appid string
 	}
-	
 	Installer []struct {
 		Dir  string
 	}
-	
 	Configs []struct {
 		Item  string
 		Format string
