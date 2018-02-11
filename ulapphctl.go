@@ -497,13 +497,13 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				
 				fmt.Printf("\nLINE: %v", scanner.Text())
 				//loop from configs
-				for i, cfg := range Config.Configs {
+				for key, cfg := range Config.Configs {
 					
-					//tStr := fmt.Sprintf("%v =", cfg.Item)
-					//i = strings.Index(scanner.Text(), tStr)
-					SPL := strings.Split(scanner.Text(), "=")
-					if strings.TrimSpace(SPL[0]) == strings.TrimSpace(cfg.Item) {
-					//if i != -1 {
+					tStr := fmt.Sprintf("%v =", strings.TrimSpace(cfg.Item))
+					i = strings.Index(scanner.Text(), tStr)
+					//SPL := strings.Split(scanner.Text(), "=")
+					//if strings.TrimSpace(SPL[0]) == strings.TrimSpace(cfg.Item) {
+					if i != -1 {
 						//-----------------------------
 						//Configuring installation
 						fmt.Printf("\n++ Processing cfg.Item...  ")
@@ -511,8 +511,8 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 						fmt.Printf("\n+++ cfg.Format: %v", cfg.Format)
 						fmt.Printf("\n+++ cfg.Status: %v", cfg.Status)
 						fmt.Printf("\n+++ cfg.Value: %v", cfg.Value)
-						fmt.Printf("\nCFG[%v]: %v", i, fmt.Sprintf("%v", strings.TrimSpace(SPL[0])))
-						fmt.Printf("\nCFG[%v]: %v", i, fmt.Sprintf("%v", strings.TrimSpace(cfg.Item)))
+						//fmt.Printf("\nCFG[%v]: %v", key, fmt.Sprintf("%v", strings.TrimSpace(SPL[0])))
+						fmt.Printf("\nCFG[%v]: %v", key, fmt.Sprintf("%v", strings.TrimSpace(cfg.Item)))
 	
 						switch cfg.Format {
 							case "Flag":
