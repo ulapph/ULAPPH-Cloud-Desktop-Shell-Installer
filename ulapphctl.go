@@ -146,6 +146,7 @@ func main() {
 
 //deploy ulapph cloud desktop
 func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
+	fmt.Printf("\nRemoving main.go.*...\n")
 	//rm main.go.*
 	app := "rm"
     	arg1 := fmt.Sprintf("main.go.*")
@@ -159,9 +160,9 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
         	return
     	}
 	print(string(stdout))	
-	fmt.Printf("\n+ Deleted temporary files... \n%v ", stdout)
-	
-	//mv main3.go
+
+	fmt.Printf("\nMoving main2.go to main.go*\n")	
+	//mv main2.go
 	app = "mv"
     	arg1 = fmt.Sprintf("main2.go")
     	arg2 := fmt.Sprintf("main.go")
@@ -175,8 +176,8 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
         	return
     	}
 	print(string(stdout))	
-	fmt.Printf("\n+ Deleted temporary files... \n%v ", stdout)
 	
+	fmt.Printf("\nDeploying to Google Appengine...\n")
 	//gcloud --project=deathlake-fly --account=demo.ulapph@gmail.com --verbosity=info --quiet app deploy app.yaml
 	app = "gcloud"
     	arg1 = fmt.Sprintf("--project=%v", project)
