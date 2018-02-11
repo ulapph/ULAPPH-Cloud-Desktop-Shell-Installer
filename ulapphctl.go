@@ -95,7 +95,7 @@ func main() {
 			fmt.Printf("\nTry: ulapphctl configure --config your-ulapph-cloud-desktop.yaml\n")
 			return nil
 		}
-		err := installUlapphCloudDesktop(config)
+		err := configureUlapphCloudDesktop(config)
 		if err != nil {
 			fmt.Printf("\nCompleted! Error(s) encountered! %v\n", err)	
 		} else {
@@ -146,6 +146,43 @@ func main() {
 
 //deploy ulapph cloud desktop
 func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
+	fmt.Printf("\nPerforming validations...\n")
+	//validate project
+	//valudate account
+    	file, err := os.Open("main.go")
+    	if err != nil {
+        log.Fatal(err)
+		fmt.Printf("\nERROR: Missing main.go")
+		return
+    	}
+    	defer file.Close()
+
+	FL_VALID_PROJECT := false
+	FL_VALID_ACCOUNT := false
+    	scanner := bufio.NewScanner(file)
+    	for scanner.Scan() {
+		sLineText := scanner.Text()		
+		i := strings.Index(sLineText, project)
+		if i != -1 {
+			FL_VALID_PROJECT = true
+		}
+		i = strings.Index(sLineText, account)
+		if i != -1 {
+			FL_VALID_ACCOUNT = true
+		}
+		if FL_VALID_PROJECT == true && FL_VALID_ACCOUNT == true {
+			break
+		}
+	}
+	if FL_VALID_PROJECT != true {
+		fmt.Printf("\nERROR: Invalid project ID")
+		return
+	}
+	if FL_VALID_ACCOUNT != true {
+		fmt.Printf("\nERROR: Invalid account")
+		return
+	}
+
 	fmt.Printf("\nRemoving main.go backup...\n")
 	//rm main.go.*
 	app := "rm"
@@ -222,8 +259,8 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
 	return err
 }
 
-//install ulapph cloud desktop
-func installUlapphCloudDesktop(CFG_FILE string) (err error) {
+//configure ulapph cloud desktop
+func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 	//------------------------------
 	//Load the configuration file
 	configor.Load(&Config, CFG_FILE)
