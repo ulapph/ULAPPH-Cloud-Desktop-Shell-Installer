@@ -109,6 +109,15 @@ configs:
      status: Enable
      value: ulapph-demo
 ```
+- Indicate the Google URL Shortener API key
+- You can get the API Key from here
+	* https://developers.google.com/url-shortener/v1/getting_started
+```
+   - item: apiKeyUs
+     format: Text
+     status: Enable
+     value: AIzaSyDY93rCNZv_IXLUaz0aRWhX61234567890
+```
 
 ## STEP 4b - Populate optional YAML fields
 - Populate the below optional fields

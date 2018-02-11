@@ -19,17 +19,17 @@ configs:
    - item: ADMIN_ACCOUNT
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: EMAIL_ADD_1
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: EMAIL_ADD_2
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: EMAIL_ADD_3
      format: Text
@@ -74,27 +74,27 @@ configs:
    - item: ADMMAIL
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: SYSMAIL
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: ADSMAIL
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: REPMAIL
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: FDBKMAIL
      format: Text
      status: Enable
-     value: demo.ulapph@gmail.com
+     value: ulapph@gmail.com
 
    - item: SYS_SERVER_NAME
      format: Text
@@ -725,7 +725,7 @@ configs:
    - item: var isExceptionAccount
      format: Text
      status: InternalMatched
-     value: map[string]bool{"demo.ulapph@gmail.com":true,}
+     value: map[string]bool{"ulapph@gmail.com":true,}
 
    - item: var freeAccess
      format: Text
@@ -790,17 +790,17 @@ configs:
    - item: SOCIAL_LINK_FB
      format: Text
      status: Enable
-     value: https://www.facebook.com/yourlink
+     value: https://www.facebook.com/edwin.vinas.18
 
    - item: SOCIAL_LINK_LINKEDIN
      format: Text
      status: Enable
-     value: https://ph.linkedin.com/in/yourlink
+     value: https://ph.linkedin.com/in/edwindvinas
 
    - item: SOCIAL_LINK_TWITTER
      format: Text
      status: Enable
-     value: https://twitter.com/yourlink
+     value: https://twitter.com/edwindvinas
 
    - item: SYS_ADD_THIS_PUB_ID
      format: Text
@@ -1091,4 +1091,9 @@ configs:
      format: Text
      status: Enable
      value: https://raw.githubusercontent.com/edwindvinas/ULAPPH-Cloud-Desktop/master/PROVIDERS/Google
+
+   - item: FL_FIREBASE_ENABLE
+     format: Flag
+     status: Enable
+     value: false
 
