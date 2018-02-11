@@ -224,37 +224,18 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
     	arg5 := fmt.Sprintf("app")
     	arg6 := fmt.Sprintf("deploy")
 	arg7 := fmt.Sprintf("%v", yaml)
+	arg8 := fmt.Sprintf("> ulapphctl.log")
 	
-    	cmd = exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
-    	//stdout, err = cmd.Output()
-	//
-    	//if err != nil {
-        //	println(err.Error())
-        //	stdout = []byte(err.Error())
-        //	return
-    	//}
-	//print(string(stdout))	
-	//fmt.Printf("\n+ Deployment logs... \n%v ", stdout)
-	stdoutpipe, _ := cmd.StdoutPipe()
-	cmd.Start()
-	oneByte := make([]byte, 100)
-	num := 1
-	for {
-		_, err := stdoutpipe.Read(oneByte)
-		if err != nil {
-			fmt.Printf(err.Error())
-			break
-		}
-		r := bufio.NewReader(stdoutpipe)
-		line, _, _ := r.ReadLine()
-		fmt.Println(string(line))
-		num = num + 1
-		if num > 3 {
-			os.Exit(0)
-		}
-	}
-
-	cmd.Wait()
+    	cmd = exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
+    	stdout, err = cmd.Output()
+	
+    	if err != nil {
+        	println(err.Error())
+        	stdout = []byte(err.Error())
+        	return
+    	}
+	print(string(stdout))	
+	fmt.Printf("\nDeployment completed...\n")
 	
 	return err
 }
