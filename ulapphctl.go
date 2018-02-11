@@ -302,8 +302,28 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 		lineCtr++
 		sLineText := scanner.Text()
 		
+		//get old domain
+		OLD_DOMAIN := ""
+		NEW_DOMAIN := ""
+		//GAE_APP_DOM_ID#ulapph-public-1.appspot.com
 		//--------------------------------
-		i := strings.Index(sLineText, "// !!!CONFIG-STARTS-HERE!!!")
+		i := strings.Index(sLineText, "//GAE_APP_DOM_ID#")
+		if i != -1 {
+			//-----------------------------
+			//Configuring installation
+			SPL := strings.Split(sLineText, "#")
+			SPL2 := strings.Split(SPL[1], ".appspot.com")
+			OLD_DOMAIN = SPL2[0]
+			NEW_DOMAIN = Config.Project[0].Appid			
+		}
+		//replace all old domains w/ new domains
+		i = strings.Index(sLineText, OLD_DOMAIN)
+		if i != -1 {
+			sLineText = strings.Replace(sLineText, OLD_DOMAIN, NEW_DOMAIN, -1)
+		}
+		
+		//--------------------------------
+		i = strings.Index(sLineText, "// !!!CONFIG-STARTS-HERE!!!")
 		if i != -1 {
 			//-----------------------------
 			//Configuring installation
