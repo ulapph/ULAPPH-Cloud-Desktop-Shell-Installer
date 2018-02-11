@@ -92,7 +92,7 @@ func main() {
 	  Action:  func(c *cli.Context) error {
 		if config == "" {
 			fmt.Printf("ERROR: Missing configuration file!")
-			fmt.Printf("\nTry: ulapphctl configure --config your-ulapph-cloud-desktop.yaml")
+			fmt.Printf("\nTry: ulapphctl configure --config your-ulapph-cloud-desktop.yaml\n")
 			return nil
 		}
 		err := installUlapphCloudDesktop(config)
@@ -112,17 +112,17 @@ func main() {
 	  Action:  func(c *cli.Context) error {
 		if account == "" {
 			fmt.Printf("ERROR: Missing Google account parameter")
-			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
+			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml\n")
 			return nil
 		}
 		if project == "" {
 			fmt.Printf("ERROR: Missing Project ID parameter")
-			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
+			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml\n")
 			return nil
 		}
 		if yaml == "" {
 			fmt.Printf("ERROR: Missing YAML parameter")
-			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
+			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml\n")
 			return nil
 		}
 		err := deployUlapphCloudDesktop(project, account, yaml)
