@@ -39,14 +39,17 @@ Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 	   0.0.0
 
 	COMMANDS:
-	     install, i  install ulapph cloud desktop
-	     upgrade, u  upgrade an existing ulapph cloud desktop
-	     help, h     Shows a list of commands or help for one command
+	     configure, i  configure ulapph cloud desktop
+	     deploy, i     deploy ulapph cloud desktop
+	     help, h       Shows a list of commands or help for one command
 
 	GLOBAL OPTIONS:
-	   --config value, -c value  Configuration file for the ulapph cloud destkop
-	   --help, -h                show help
-	   --version, -v             print the version
+	   --account value, -a value  Google account (email)
+	   --config value, -c value   Configuration file for the ulapph cloud destkop
+	   --project value, -p value  Target google project ID
+	   --yaml value, -y value     YAML source file for Google Appengine
+	   --help, -h                 show help
+	   --version, -v              print the version
    
 ```
 
