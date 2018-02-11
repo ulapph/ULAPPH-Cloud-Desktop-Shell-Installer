@@ -189,15 +189,36 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
 	arg7 := fmt.Sprintf("%v", yaml)
 	
     	cmd = exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
-    	stdout, err = cmd.Output()
+    	//stdout, err = cmd.Output()
+	//
+    	//if err != nil {
+        //	println(err.Error())
+        //	stdout = []byte(err.Error())
+        //	return
+    	//}
+	//print(string(stdout))	
+	//fmt.Printf("\n+ Deployment logs... \n%v ", stdout)
+	stdoutpipe, _ := cmd.StdoutPipe()
+	cmd.Start()
+	oneByte := make([]byte, 100)
+	num := 1
+	for {
+		_, err := stdoutpipe.Read(oneByte)
+		if err != nil {
+			fmt.Printf(err.Error())
+			break
+		}
+		r := bufio.NewReader(stdoutpipe)
+		line, _, _ := r.ReadLine()
+		fmt.Println(string(line))
+		num = num + 1
+		if num > 3 {
+			os.Exit(0)
+		}
+	}
 
-    	if err != nil {
-        	println(err.Error())
-        	stdout = []byte(err.Error())
-        	return
-    	}
-	print(string(stdout))	
-	fmt.Printf("\n+ Deployment logs... \n%v ", stdout)
+	cmd.Wait()
+	
 	return err
 }
 
