@@ -1,4 +1,3 @@
-:q
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // ULAPPH CLOUD DESKTOP SYSTEM
 // ULAPPH Cloud Desktop is a web-based desktop that runs on Google cloud platform and accessible via browsers on different PC and mobile devices.
