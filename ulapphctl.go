@@ -301,32 +301,13 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
     	for scanner.Scan() {
 		lineCtr++
 		sLineText := scanner.Text()
-		
-		//get old domain
-		OLD_DOMAIN := ""
-		NEW_DOMAIN := ""
-		//GAE_APP_DOM_ID#ulapph-public-1.appspot.com
-		//--------------------------------
-		i := strings.Index(sLineText, "//GAE_APP_DOM_ID#")
-		if i != -1 {
-			//-----------------------------
-			//Configuring installation
-			SPL := strings.Split(sLineText, "#")
-			SPL2 := strings.Split(SPL[1], ".appspot.com")
-			OLD_DOMAIN = SPL2[0]
-			NEW_DOMAIN = Config.Project[0].Appid
-			fmt.Printf("\n+++ OLD_DOMAIN: %v  ", OLD_DOMAIN)
-			fmt.Printf("\n+++ NEW_DOMAIN: %v  ", NEW_DOMAIN)
-			if OLD_DOMAIN == "" || NEW_DOMAIN == "" {
-				fmt.Printf("\nERROR: Missing old or new domain!")
-				return				
-			}
-		}
+
 		//replace all old domains w/ new domains
-		i = strings.Index(sLineText, OLD_DOMAIN)
+		i := strings.Index(sLineText, OLD_DOMAIN_NAME)
 		if i != -1 {
-			sLineText = strings.Replace(sLineText, OLD_DOMAIN, NEW_DOMAIN, -1)
+			sLineText = strings.Replace(sLineText, OLD_DOMAIN_NAME, NEW_DOMAIN_NAME, -1)
 			fmt.Printf("\nREPLACED: Old domain replaced with new!")
+			fmt.Printf("\nNEWTEXT: %v", fmt.Sprintf("%v\n", sLineText))
 		}
 		
 		//--------------------------------
@@ -374,6 +355,8 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 					//FL_VALID_FILE = true
 					OLD_DOMAIN_NAME = SPL[1]
 					NEW_DOMAIN_NAME = configValue
+					fmt.Printf("\n++ OLD_DOMAIN_NAME: %v", OLD_DOMAIN_NAME)
+					fmt.Printf("\n++ NEW_DOMAIN_NAME: %v", NEW_DOMAIN_NAME)
 				}
 			}
 			if lineCtr == 2 {
@@ -400,9 +383,9 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing <title>...  ")
 				//replace
-				lineText := strings.Replace(sLineText, OLD_DOMAIN_NAME, NEW_DOMAIN_NAME, -1)
-				buf.WriteString(fmt.Sprintf("%v\n", lineText))
-				fmt.Printf("\nNEWLINE003: %v", fmt.Sprintf("%v\n", lineText))
+				//lineText := strings.Replace(sLineText, OLD_DOMAIN_NAME, NEW_DOMAIN_NAME, -1)
+				buf.WriteString(fmt.Sprintf("%v\n", sLineText))
+				fmt.Printf("\nNEWLINE003: %v", fmt.Sprintf("%v\n", sLineText))
 				print(string("ok\n"))
 				FL_WRITTEN_OK = true
 			}
