@@ -249,7 +249,13 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				fmt.Printf("\n++ Processing var isExceptionAccount...  ")
 				//replace
 				configValue := getFromConfig("var isExceptionAccount")		
-				buf.WriteString(fmt.Sprintf("var isExceptionAccount = `%v`\n", configValue))
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isExceptionAccount", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var isExceptionAccount = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -260,8 +266,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var isCountryAllowed...  ")
 				//replace
-				configValue := getFromConfig("var isCountryAllowed")		
-				buf.WriteString(fmt.Sprintf("var isCountryAllowed = `%v`\n", configValue))
+				configValue := getFromConfig("var isCountryAllowed")	
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isCountryAllowed", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var isCountryAllowed = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -272,8 +284,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var isCountryNotAllowed...  ")
 				//replace
-				configValue := getFromConfig("var isCountryNotAllowed")		
-				buf.WriteString(fmt.Sprintf("var isCountryNotAllowed = `%v`\n", configValue))
+				configValue := getFromConfig("var isCountryNotAllowed")
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isCountryNotAllowed", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var isCountryNotAllowed = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -284,8 +302,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var isInBoundAppidAllowed...  ")
 				//replace
-				configValue := getFromConfig("var isInBoundAppidAllowed")		
-				buf.WriteString(fmt.Sprintf("var isInBoundAppidAllowed = `%v`\n", configValue))
+				configValue := getFromConfig("var isInBoundAppidAllowed")
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isInBoundAppidAllowed", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var isInBoundAppidAllowed = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -296,8 +320,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var isSearchEngineAllowed...  ")
 				//replace
-				configValue := getFromConfig("var isSearchEngineAllowed")		
-				buf.WriteString(fmt.Sprintf("var isSearchEngineAllowed = `%v`\n", configValue))
+				configValue := getFromConfig("var isSearchEngineAllowed")
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isSearchEngineAllowed", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var isSearchEngineAllowed = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -308,8 +338,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var freeAccess...  ")
 				//replace
-				configValue := getFromConfig("var freeAccess")		
-				buf.WriteString(fmt.Sprintf("var freeAccess = `%v`\n", configValue))
+				configValue := getFromConfig("var freeAccess")
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var freeAccess", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var freeAccess = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -320,8 +356,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var bronzeAccesss...  ")
 				//replace
-				configValue := getFromConfig("var bronzeAccess")		
-				buf.WriteString(fmt.Sprintf("var bronzeAccess = `%v`\n", configValue))
+				configValue := getFromConfig("var bronzeAccess")
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var bronzeAccess", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var bronzeAccess = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -332,8 +374,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var silverAccess...  ")
 				//replace
-				configValue := getFromConfig("var silverAccess")		
-				buf.WriteString(fmt.Sprintf("var silverAccess = `%v`\n", configValue))
+				configValue := getFromConfig("var silverAccess")	
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var silverAccess", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var silverAccess = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -344,8 +392,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//Configuring installation
 				fmt.Printf("\n++ Processing var goldAccess...  ")
 				//replace
-				configValue := getFromConfig("var goldAccess")		
-				buf.WriteString(fmt.Sprintf("var goldAccess = `%v`\n", configValue))
+				configValue := getFromConfig("var goldAccess")
+				i = strings.Index(configValue, "map[")
+				if i != -1 {
+					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var goldAccess", configValue))
+				} else {
+					buf.WriteString(fmt.Sprintf("var goldAccess = `%v`\n", configValue))
+				}
+
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
