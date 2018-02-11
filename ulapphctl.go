@@ -159,8 +159,27 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	
     	for scanner.Scan() {
 		lineCtr++
-		//check if line is a comment
 		sLineText := scanner.Text()
+		
+		//--------------------------------
+		i := strings.Index(sLineText, "// !!!CONFIG-STARTS-HERE!!!")
+		if i != -1 {
+			//-----------------------------
+			//Configuring installation
+			fmt.Printf("\n++ Setting flag FL_START_CUST_CONFIGS...  ")
+			fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
+			FL_START_CUST_CONFIGS = true
+		}
+		
+		i = strings.Index(sLineText, "// !!!CONFIG-ENDS-HERE!!!")
+		if i != -1 {
+			//-----------------------------
+			//Configuring installation
+			fmt.Printf("\n++ Setting flag FL_START_CUST_CONFIGS...  ")
+			fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
+			FL_END_CUST_CONFIGS = true
+		}
+		
 		tLineStr := fmt.Sprintf("%v", sLineText)
 		tLineStr2 := strings.TrimSpace(tLineStr)
 		if len(tLineStr2) > 2 && string(tLineStr2[0]) != "/" && string(tLineStr2[1]) != "/" {
@@ -562,25 +581,6 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	
 			
 				
-			}
-			
-			//--------------------------------
-			i = strings.Index(sLineText, "// !!!CONFIG-STARTS-HERE!!!")
-			if i != -1 {
-				//-----------------------------
-				//Configuring installation
-				fmt.Printf("\n++ Setting flag FL_START_CUST_CONFIGS...  ")
-				fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
-				FL_START_CUST_CONFIGS = true
-			}
-			
-			i = strings.Index(sLineText, "// !!!CONFIG-ENDS-HERE!!!")
-			if i != -1 {
-				//-----------------------------
-				//Configuring installation
-				fmt.Printf("\n++ Setting flag FL_START_CUST_CONFIGS...  ")
-				fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
-				FL_END_CUST_CONFIGS = true
 			}
 			
 			//--------------------------
