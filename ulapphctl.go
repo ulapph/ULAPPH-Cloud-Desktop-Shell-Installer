@@ -110,8 +110,18 @@ func main() {
 	  Aliases: []string{"i"},
 	  Usage:   "deploy ulapph cloud desktop",
 	  Action:  func(c *cli.Context) error {
-		if config == "" {
-			fmt.Printf("ERROR: Missing configuration file!")
+		if account == "" {
+			fmt.Printf("ERROR: Missing Google account parameter")
+			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
+			return nil
+		}
+		if project == "" {
+			fmt.Printf("ERROR: Missing Project ID parameter")
+			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
+			return nil
+		}
+		if yaml == "" {
+			fmt.Printf("ERROR: Missing YAML parameter")
 			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
 			return nil
 		}
@@ -136,18 +146,49 @@ func main() {
 
 //deploy ulapph cloud desktop
 func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
+	//rm main.go.*
+	app := "rm"
+    	arg1 := fmt.Sprintf("main.go.*")
+	
+    	cmd := exec.Command(app, arg1)
+    	stdout, err := cmd.Output()
+
+    	if err != nil {
+        	println(err.Error())
+        	stdout = []byte(err.Error())
+        	return
+    	}
+	print(string(stdout))	
+	fmt.Printf("\n+ Deleted temporary files... \n%v ", stdout)
+	
+	//mv main3.go
+	app = "mv"
+    	arg1 = fmt.Sprintf("main2.go")
+    	arg2 := fmt.Sprintf("main.go")
+	
+    	cmd = exec.Command(app, arg1, arg2)
+    	stdout, err = cmd.Output()
+
+    	if err != nil {
+        	println(err.Error())
+        	stdout = []byte(err.Error())
+        	return
+    	}
+	print(string(stdout))	
+	fmt.Printf("\n+ Deleted temporary files... \n%v ", stdout)
+	
 	//gcloud --project=deathlake-fly --account=demo.ulapph@gmail.com --verbosity=info --quiet app deploy app.yaml
-	app := "gcloud"
-    	arg1 := fmt.Sprintf("--project=%v", project)
-    	arg2 := fmt.Sprintf("--account=%v", account)
+	app = "gcloud"
+    	arg1 = fmt.Sprintf("--project=%v", project)
+    	arg2 = fmt.Sprintf("--account=%v", account)
     	arg3 := fmt.Sprintf("--verbosity=info")
     	arg4 := fmt.Sprintf("--quiet")
     	arg5 := fmt.Sprintf("app")
     	arg6 := fmt.Sprintf("deploy")
 	arg7 := fmt.Sprintf("%v", yaml)
 	
-    	cmd := exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
-    	stdout, err := cmd.Output()
+    	cmd = exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+    	stdout, err = cmd.Output()
 
     	if err != nil {
         	println(err.Error())
@@ -662,7 +703,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	//-----------------------------
 	//Writing modified file
 	fmt.Printf("\n+ Writing modified file...  ")	
-    	err = ioutil.WriteFile(Config.Installer[0].Dir+"/main3.go", buf.Bytes(), 0644)
+    	err = ioutil.WriteFile(Config.Installer[0].Dir+"/main2.go", buf.Bytes(), 0644)
     	if err != nil {
         log.Fatal(err)
 		stdout = []byte(fmt.Sprintf("%v",err))
