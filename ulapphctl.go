@@ -1,3 +1,4 @@
+:q
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // ULAPPH CLOUD DESKTOP SYSTEM
 // ULAPPH Cloud Desktop is a web-based desktop that runs on Google cloud platform and accessible via browsers on different PC and mobile devices.
@@ -181,6 +182,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 					SPL := strings.Split(scanner.Text(), "#")
 					configValue := getFromConfig("APP_URL")
 					buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], configValue))
+				        fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v#%v\n", SPL[0], configValue))
 					FL_WRITTEN_OK = true
 					//FL_VALID_FILE = true
 					OLD_DOMAIN_NAME = SPL[1]
@@ -199,6 +201,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 					currenttime := time.Now().Local()
 					TSTMP := currenttime.Format("02/01/2006 15:04:05")
 					buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], TSTMP))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v#%v\n", SPL[0], TSTMP))
 					FL_WRITTEN_OK = true
 					//FL_VALID_FILE = true
 				}
@@ -212,6 +215,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//replace
 				lineText := strings.Replace(scanner.Text(), OLD_DOMAIN_NAME, NEW_DOMAIN_NAME, -1)
 				buf.WriteString(fmt.Sprintf("%v\n", lineText))
+				fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v\n", lineText))
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -225,6 +229,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				configValue := getFromConfig("INFO_ABOUT_US")		
 				lineText := strings.Replace(scanner.Text(), "ULAPPH_META_DESCRIPTION_CONTENT", configValue, -1)
 				buf.WriteString(fmt.Sprintf("%v\n", lineText))
+				fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v\n", lineText))
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -252,8 +257,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isExceptionAccount", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var isExceptionAccount", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var isExceptionAccount = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var isExceptionAccount = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -270,8 +277,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isCountryAllowed", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var isCountryAllowed", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var isCountryAllowed = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var isCountryAllowed = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -288,8 +297,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isCountryNotAllowed", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var isCountryNotAllowed", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var isCountryNotAllowed = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var isCountryNotAllowed = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -306,8 +317,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isInBoundAppidAllowed", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var isInBoundAppidAllowed", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var isInBoundAppidAllowed = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var isInBoundAppidAllowed = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -324,8 +337,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var isSearchEngineAllowed", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var isSearchEngineAllowed", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var isSearchEngineAllowed = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var isSearchEngineAllowed = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -342,8 +357,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var freeAccess", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var freeAccess", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var freeAccess = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var freeAccess = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -360,8 +377,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var bronzeAccess", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var bronzeAccess", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var bronzeAccess = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var bronzeAccess = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -378,8 +397,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var silverAccess", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var silverAccess", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var silverAccess = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var silverAccess = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -396,8 +417,10 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				i = strings.Index(configValue, "map[")
 				if i != -1 {
 					buf.WriteString(fmt.Sprintf("    %v = %v\n", "var goldAccess", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", "var goldAccess", configValue))
 				} else {
 					buf.WriteString(fmt.Sprintf("var goldAccess = `%v`\n", configValue))
+					fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("var goldAccess = `%v`\n", configValue))
 				}
 
 				print(string("ok"))
@@ -413,6 +436,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				currenttime := time.Now().Local()
 				TSTMP := currenttime.Format("2006-01-02-15-04-05")	
 				buf.WriteString(fmt.Sprintf("    UCD_BUILD_STR = `BUILD_%v`", TSTMP))
+				fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    UCD_BUILD_STR = `BUILD_%v`", TSTMP))
 				buf.WriteString("\n")
 				print(string("ok"))
 				FL_WRITTEN_OK = true
@@ -427,6 +451,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				configValue := getFromConfig("ADMIN_ACCOUNT")		
 				lineText := strings.Replace(scanner.Text(), "ULAPPH_ADMIN_EMAIL", configValue, -1)
 				buf.WriteString(fmt.Sprintf("%v\n", lineText))
+				fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v\n", lineText))
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -444,6 +469,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				ERR1CTR = ERR1CTR + 1
 				ERRCODE := padNumberWithZero(4, ERR1CTR)
 				buf.WriteString(fmt.Sprintf("%v[R%v] Read Datastore...\n", SPL[0], ERRCODE))
+				fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v[R%v] Read Datastore...\n", SPL[0], ERRCODE))
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -461,6 +487,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				ERR1CTR = ERR1CTR + 1
 				ERRCODE := padNumberWithZero(4, ERR1CTR)
 				buf.WriteString(fmt.Sprintf("%v[W%v] Write Datastore...\n", SPL[0], ERRCODE))
+				fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("%v[W%v] Write Datastore...\n", SPL[0], ERRCODE))
 				print(string("ok"))
 				FL_WRITTEN_OK = true
 			}
@@ -488,6 +515,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 						switch cfg.Format {
 							case "Flag":
 								buf.WriteString(fmt.Sprintf("    %v = %v\n", cfg.Item, cfg.Value))
+								fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", cfg.Item, cfg.Value))
 							case "Number":
 								num, err := strconv.Atoi(cfg.Value)
 								if err != nil {
@@ -496,6 +524,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 									break
 								}
 								buf.WriteString(fmt.Sprintf("    %v = %v\n", cfg.Item, num))
+								fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", cfg.Item, num))
 							case "Text":
 								if cfg.Item == "FIREBASE_SERVER_JSON" {
 									//read file and append
@@ -507,13 +536,16 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 										break
 									}
 									buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, string(b)))
+									fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = `%v`\n", cfg.Item, string(b)))
 								} else {
 									//for maps
 									i = strings.Index(cfg.Value, "map[")
 									if i != -1 {
 										buf.WriteString(fmt.Sprintf("    %v = %v\n", cfg.Item, cfg.Value))
+										fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = %v\n", cfg.Item, cfg.Value))
 									} else {	 
 										buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, cfg.Value))
+										fmt.Printf("\nNEWLINE: %v", fmt.Sprintf("    %v = `%v`\n", cfg.Item, cfg.Value))
 									}
 
 								}
@@ -550,6 +582,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			//for those not edited lines
 			if FL_WRITTEN_OK == false {
 				buf.WriteString(fmt.Sprintf("%v\n", scanner.Text()))
+				fmt.Printf("\nNEWLINE: %v", scanner.Text())
 			}
 
 		} else {
@@ -557,6 +590,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//skip comments
 			} else {
 				buf.WriteString(fmt.Sprintf("%v\n", scanner.Text()))	
+				fmt.Printf("\nNEWLINE: %v", scanner.Text())
 			}
 		}
 
