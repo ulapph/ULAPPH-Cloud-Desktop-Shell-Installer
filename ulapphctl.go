@@ -149,7 +149,7 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
 	fmt.Printf("\nPerforming validations...\n")
 	//validate project
 	//valudate account
-    	file, err := os.Open("main.go")
+    	file, err := os.Open("main2.go")
     	if err != nil {
         log.Fatal(err)
 		fmt.Printf("\nERROR: Missing main.go")
