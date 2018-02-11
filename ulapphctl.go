@@ -304,7 +304,7 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 
 		//replace all old domains w/ new domains
 		i := strings.Index(sLineText, OLD_DOMAIN_NAME)
-		if i != -1 {
+		if i != -1 && OLD_DOMAIN_NAME != "" && NEW_DOMAIN_NAME != "" {
 			sLineText = strings.Replace(sLineText, OLD_DOMAIN_NAME, NEW_DOMAIN_NAME, -1)
 			fmt.Printf("\nREPLACED: Old domain replaced with new!")
 			fmt.Printf("\nNEWTEXT: %v", fmt.Sprintf("%v\n", sLineText))
