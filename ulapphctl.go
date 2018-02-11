@@ -496,6 +496,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			//Process config values
 			if FL_START_CUST_CONFIGS == true && FL_END_CUST_CONFIGS == false {
 				
+				fmt.Printf("\nPROCESSING CONFIGS...")
 				fmt.Printf("\nLINE: %v", sLineText)
 				//loop from configs
 				for key, cfg := range Config.Configs {
@@ -513,7 +514,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 						fmt.Printf("\n+++ cfg.Status: %v", cfg.Status)
 						fmt.Printf("\n+++ cfg.Value: %v", cfg.Value)
 						//fmt.Printf("\nCFG[%v]: %v", key, fmt.Sprintf("%v", strings.TrimSpace(SPL[0])))
-						fmt.Printf("\nCFG[%v]: %v", key, fmt.Sprintf("%v", strings.TrimSpace(cfg.Item)))
+						fmt.Printf("\nCONFIGS[%v]: %v", key, fmt.Sprintf("%v", strings.TrimSpace(cfg.Item)))
 	
 						switch cfg.Format {
 							case "Flag":
@@ -569,6 +570,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//-----------------------------
 				//Configuring installation
 				fmt.Printf("\n++ Setting flag FL_START_CUST_CONFIGS...  ")
+				fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
 				FL_START_CUST_CONFIGS = true
 			}
 			
@@ -577,6 +579,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//-----------------------------
 				//Configuring installation
 				fmt.Printf("\n++ Setting flag FL_START_CUST_CONFIGS...  ")
+				fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
 				FL_END_CUST_CONFIGS = true
 			}
 			
@@ -585,7 +588,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 			//for those not edited lines
 			if FL_WRITTEN_OK == false {
 				buf.WriteString(fmt.Sprintf("%v\n", sLineText))
-				fmt.Printf("\nNEWLINE033: %v", sLineText)
+				fmt.Printf("\nNEWLINE033(NOT-EDITED): %v", sLineText)
 			}
 
 		} else {
@@ -593,7 +596,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//skip comments
 			} else {
 				buf.WriteString(fmt.Sprintf("%v\n", sLineText))	
-				fmt.Printf("\nNEWLINE034: %v", sLineText)
+				fmt.Printf("\nNEWLINE034(AS-IS): %v", sLineText)
 			}
 		}
 
