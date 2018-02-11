@@ -97,9 +97,9 @@ func main() {
 		}
 		err := configureUlapphCloudDesktop(config)
 		if err != nil {
-			fmt.Printf("\nCompleted! Error(s) encountered! %v\n", err)	
+			fmt.Printf("\nError(s) encountered! %v\n", err)	
 		} else {
-			fmt.Printf("\nCompleted! Code has been generated!\n")
+			fmt.Printf("\nCode has been generated!\n")
 		}
 
 		return nil
@@ -127,9 +127,9 @@ func main() {
 		}
 		err := deployUlapphCloudDesktop(project, account, yaml)
 		if err != nil {
-			fmt.Printf("\nCompleted! Error(s) encountered! %v\n", err)	
+			fmt.Printf("\nError(s) encountered! %v\n", err)	
 		} else {
-			fmt.Printf("\nCompleted! Code has been deployed!\n")
+			fmt.Printf("\nSuccessful!\n")
 		}
 
 		return nil
@@ -146,7 +146,8 @@ func main() {
 
 //deploy ulapph cloud desktop
 func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
-	fmt.Printf("\nPerforming validations...\n")
+	fmt.Printf("\n+ ULAPPH Cloud Desktop Installation\n")
+	fmt.Printf("\n++ Performing validations...\n")
 	//validate project
 	//valudate account
     	file, err := os.Open("main2.go")
@@ -183,7 +184,7 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
 		return
 	}
 
-	fmt.Printf("\nRemoving main.go backup...\n")
+	fmt.Printf("\n++ Removing main.go backup...\n")
 	//rm main.go.*
 	app := "rm"
     	arg1 := fmt.Sprintf("main.go.backup")
@@ -198,7 +199,7 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
     	}
 	print(string(stdout))	
 
-	fmt.Printf("\nMoving main2.go to main.go\n")	
+	fmt.Printf("\n++ Moving main2.go to main.go\n")	
 	//mv main2.go
 	app = "mv"
     	arg1 = fmt.Sprintf("main2.go")
@@ -214,7 +215,7 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
     	}
 	print(string(stdout))	
 	
-	fmt.Printf("\nDeploying to Google Appengine...\n")
+	fmt.Printf("\n++ Deploying to Google Appengine...\n")
 	//gcloud --project=deathlake-fly --account=demo.ulapph@gmail.com --verbosity=info --quiet app deploy app.yaml
 	app = "gcloud"
     	arg1 = fmt.Sprintf("--project=%v", project)
@@ -234,10 +235,11 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
         	return
     	}
 	print(string(stdout))	
-	fmt.Printf("\nDeployment completed...\n")
+	fmt.Printf("\n++ Deployment completed...\n")
 	fmt.Printf("\nhttps://%v.appspot.com/uwm", project)
 	fmt.Printf("\nhttps://%v.appspot.com/contents?q=home", project)
 	fmt.Printf("\nhttps://%v.appspot.com/admin-setup", project)
+	fmt.Println("\n")
 	
 	return err
 }
