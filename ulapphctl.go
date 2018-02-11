@@ -314,7 +314,13 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 			SPL := strings.Split(sLineText, "#")
 			SPL2 := strings.Split(SPL[1], ".appspot.com")
 			OLD_DOMAIN = SPL2[0]
-			NEW_DOMAIN = Config.Project[0].Appid			
+			NEW_DOMAIN = Config.Project[0].Appid
+			fmt.Printf("\n+++ OLD_DOMAIN: %v  ", OLD_DOMAIN)
+			fmt.Printf("\n+++ NEW_DOMAIN: %v  ", NEW_DOMAIN)
+			if OLD_DOMAIN == "" || NEW_DOMAIN == "" {
+				fmt.Printf("\nERROR: Missing old or new domain!")
+				return				
+			}
 		}
 		//replace all old domains w/ new domains
 		i = strings.Index(sLineText, OLD_DOMAIN)
