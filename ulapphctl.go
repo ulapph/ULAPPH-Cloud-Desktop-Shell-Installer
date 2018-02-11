@@ -128,7 +128,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
         println(err.Error())
         return
     	} else {
-		stdout = []byte("ok")
+		stdout = []byte("ok\n")
 	}
 	print(string(stdout))
 	
@@ -140,7 +140,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
         log.Fatal(err)
 		stdout = []byte(fmt.Sprintf("%v",err))
     	} else {
-		stdout = []byte("ok")
+		stdout = []byte("ok\n")
 	}
 	print(string(stdout))
     	defer file.Close()
@@ -606,7 +606,7 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
         log.Fatal(err)
 		stdout = []byte(fmt.Sprintf("%v",err))
     	} else {
-		stdout = []byte("ok")
+		stdout = []byte("ok\n")
 	}
 	print(string(stdout))
 	
