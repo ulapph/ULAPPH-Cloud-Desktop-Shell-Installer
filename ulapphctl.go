@@ -454,7 +454,14 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 									}
 									buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, string(b)))
 								} else {
-									buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, cfg.Value))
+									//for maps
+									i = strings.Index(cfg.Value, "map[")
+									if i != -1 {
+										buf.WriteString(fmt.Sprintf("    %v = %v\n", cfg.Item, cfg.Value))
+									} else {	 
+										buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, cfg.Value))
+									}
+
 								}
 						}
 						print(string("ok"))
