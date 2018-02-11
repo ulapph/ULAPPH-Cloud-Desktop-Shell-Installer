@@ -146,10 +146,10 @@ func main() {
 
 //deploy ulapph cloud desktop
 func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
-	fmt.Printf("\nRemoving main.go.*...\n")
+	fmt.Printf("\nRemoving main.go backup...\n")
 	//rm main.go.*
 	app := "rm"
-    	arg1 := fmt.Sprintf("main.go.*")
+    	arg1 := fmt.Sprintf("main.go.backup")
 	
     	cmd := exec.Command(app, arg1)
     	stdout, err := cmd.Output()
@@ -161,7 +161,7 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
     	}
 	print(string(stdout))	
 
-	fmt.Printf("\nMoving main2.go to main.go*\n")	
+	fmt.Printf("\nMoving main2.go to main.go\n")	
 	//mv main2.go
 	app = "mv"
     	arg1 = fmt.Sprintf("main2.go")
@@ -213,11 +213,12 @@ func installUlapphCloudDesktop(CFG_FILE string) (err error) {
 	//Backup main.go
 	fmt.Printf("\n+ Backup main.go to main2.go...  ")
     	app := "cp"
-	currenttime := time.Now().Local()
-	TSTMP := currenttime.Format("2006-01-02-15-04-05")	
+	//currenttime := time.Now().Local()
+	//TSTMP := currenttime.Format("2006-01-02-15-04-05")	
     	arg1 := Config.Installer[0].Dir+"/main.go"
-    	arg2 := Config.Installer[0].Dir+"/main.go"+"."+TSTMP
-
+    	//arg2 := Config.Installer[0].Dir+"/main.go"+"."+TSTMP
+	arg2 := Config.Installer[0].Dir+"/main.go.backup"
+	
     	cmd := exec.Command(app, arg1, arg2)
     	stdout, err := cmd.Output()
 
