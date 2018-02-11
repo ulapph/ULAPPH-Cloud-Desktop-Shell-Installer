@@ -299,8 +299,50 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 	buf.WriteString(fmt.Sprintf("//Auto-generated codes for %v\n", Config.Project[0].Appid))
 	
     	for scanner.Scan() {
+    		FL_WRITTEN_OK := false
+    		
 		lineCtr++
 		sLineText := scanner.Text()
+		
+		if lineCtr == 1 {
+			//-----------------------------
+			//Configuring installation
+			fmt.Printf("\n++ Replacing //GAE_APP_DOM_ID#...  ")
+			i := strings.Index(sLineText, "GAE_APP_DOM_ID#")
+			if i != -1 {
+				print(string("ok\n"))
+				//split in #
+				SPL := strings.Split(sLineText, "#")
+				configValue := getFromConfig("APP_URL")
+				//buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], configValue))
+				buf.WriteString(fmt.Sprintf("//%v\n", configValue))
+			        fmt.Printf("\nNEWLINE001: %v", fmt.Sprintf("//%v\n", configValue))
+				FL_WRITTEN_OK = true
+				//FL_VALID_FILE = true
+				OLD_DOMAIN_NAME = SPL[1]
+				NEW_DOMAIN_NAME = configValue
+				fmt.Printf("\n++ OLD_DOMAIN_NAME: %v", OLD_DOMAIN_NAME)
+				fmt.Printf("\n++ NEW_DOMAIN_NAME: %v", NEW_DOMAIN_NAME)
+			}
+		}
+		if lineCtr == 2 {
+			//-----------------------------
+			//Configuring installation
+			fmt.Printf("\n++ Replacing //LAST_UPGRADE#...  ")
+			i := strings.Index(sLineText, "LAST_UPGRADE#")
+			if i != -1 {
+				print(string("ok\n"))
+				//split in #
+				//SPL := strings.Split(sLineText, "#")
+				currenttime := time.Now().Local()
+				TSTMP := currenttime.Format("02/01/2006 15:04:05")
+				//buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], TSTMP))
+				buf.WriteString(fmt.Sprintf("//%v\n", TSTMP))
+				fmt.Printf("\nNEWLINE002: %v", fmt.Sprintf("//%v\n", TSTMP))
+				FL_WRITTEN_OK = true
+				//FL_VALID_FILE = true
+			}
+		}
 
 		//replace all old domains w/ new domains
 		i := strings.Index(sLineText, OLD_DOMAIN_NAME)
@@ -337,45 +379,7 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 			fmt.Println(fmt.Sprintf("\nLINE: %v", lineCtr))  // token in unicode-char
 			fmt.Println(sLineText)  // token in unicode-char
 	        	//fmt.Println(scanner.Bytes()) // token in bytes
-			FL_WRITTEN_OK := false
-			
-			if lineCtr == 1 {
-				//-----------------------------
-				//Configuring installation
-				fmt.Printf("\n++ Replacing //GAE_APP_DOM_ID#...  ")
-				i := strings.Index(sLineText, "GAE_APP_DOM_ID#")
-				if i != -1 {
-					print(string("ok\n"))
-					//split in #
-					SPL := strings.Split(sLineText, "#")
-					configValue := getFromConfig("APP_URL")
-					buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], configValue))
-				        fmt.Printf("\nNEWLINE001: %v", fmt.Sprintf("%v#%v\n", SPL[0], configValue))
-					FL_WRITTEN_OK = true
-					//FL_VALID_FILE = true
-					OLD_DOMAIN_NAME = SPL[1]
-					NEW_DOMAIN_NAME = configValue
-					fmt.Printf("\n++ OLD_DOMAIN_NAME: %v", OLD_DOMAIN_NAME)
-					fmt.Printf("\n++ NEW_DOMAIN_NAME: %v", NEW_DOMAIN_NAME)
-				}
-			}
-			if lineCtr == 2 {
-				//-----------------------------
-				//Configuring installation
-				fmt.Printf("\n++ Replacing //LAST_UPGRADE#...  ")
-				i := strings.Index(sLineText, "LAST_UPGRADE#")
-				if i != -1 {
-					print(string("ok\n"))
-					//split in #
-					SPL := strings.Split(sLineText, "#")
-					currenttime := time.Now().Local()
-					TSTMP := currenttime.Format("02/01/2006 15:04:05")
-					buf.WriteString(fmt.Sprintf("%v#%v\n", SPL[0], TSTMP))
-					fmt.Printf("\nNEWLINE002: %v", fmt.Sprintf("%v#%v\n", SPL[0], TSTMP))
-					FL_WRITTEN_OK = true
-					//FL_VALID_FILE = true
-				}
-			}
+			//FL_WRITTEN_OK := false
 	
 			i := strings.Index(sLineText, "<title>")
 			if i != -1 {
