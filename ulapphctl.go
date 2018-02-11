@@ -224,9 +224,8 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
     	arg5 := fmt.Sprintf("app")
     	arg6 := fmt.Sprintf("deploy")
 	arg7 := fmt.Sprintf("%v", yaml)
-	arg8 := fmt.Sprintf("> ulapphctl.log")
 	
-    	cmd = exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
+    	cmd = exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     	stdout, err = cmd.Output()
 	
     	if err != nil {
@@ -236,6 +235,9 @@ func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
     	}
 	print(string(stdout))	
 	fmt.Printf("\nDeployment completed...\n")
+	fmt.Printf("\nhttps://%v.appspot.com/uwm", project)
+	fmt.Printf("\nhttps://%v.appspot.com/contents?q=home", project)
+	fmt.Printf("\nhttps://%v.appspot.com/admin-setup", project)
 	
 	return err
 }
