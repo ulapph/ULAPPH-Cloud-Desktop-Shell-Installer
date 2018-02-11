@@ -55,6 +55,9 @@ var NEW_DOMAIN_NAME = ""
 func main() {
 	
 	var config string
+	var project string
+	var account string
+	var yaml string
 	
 	app := cli.NewApp()
 
@@ -64,17 +67,32 @@ func main() {
 		  Usage: "Configuration file for the ulapph cloud destkop",
 		  Destination: &config,
 		},
+		cli.StringFlag{
+		  Name: "project, p",
+		  Usage: "Target google project ID",
+		  Destination: &project,
+		},
+		cli.StringFlag{
+		  Name: "account, a",
+		  Usage: "Google account (email)",
+		  Destination: &account,
+		},
+		cli.StringFlag{
+		  Name: "yaml, y",
+		  Usage: "YAML source file for Google Appengine",
+		  Destination: &yaml,
+		},
 	}
 
 	app.Commands = []cli.Command{
 	{
-	  Name:    "install",
+	  Name:    "configure",
 	  Aliases: []string{"i"},
-	  Usage:   "install ulapph cloud desktop",
+	  Usage:   "configure ulapph cloud desktop",
 	  Action:  func(c *cli.Context) error {
 		if config == "" {
 			fmt.Printf("ERROR: Missing configuration file!")
-			fmt.Printf("\nTry: ulapphctl install --config your-ulapph-cloud-desktop.yaml")
+			fmt.Printf("\nTry: ulapphctl configure --config your-ulapph-cloud-desktop.yaml")
 			return nil
 		}
 		err := installUlapphCloudDesktop(config)
@@ -88,10 +106,22 @@ func main() {
 	  },
 	},
 	{
-	  Name:    "upgrade",
-	  Aliases: []string{"u"},
-	  Usage:   "upgrade an existing ulapph cloud desktop",
+	  Name:    "deploy",
+	  Aliases: []string{"i"},
+	  Usage:   "deploy ulapph cloud desktop",
 	  Action:  func(c *cli.Context) error {
+		if config == "" {
+			fmt.Printf("ERROR: Missing configuration file!")
+			fmt.Printf("\nTry: ulapphctl deploy --project your-ulapph-cloud-desktop --account demo.ulapph@gmail.com --yaml app.yaml")
+			return nil
+		}
+		err := deployUlapphCloudDesktop(project, account, yaml)
+		if err != nil {
+			fmt.Printf("\nCompleted! Error(s) encountered! %v\n", err)	
+		} else {
+			fmt.Printf("\nCompleted! Code has been deployed!\n")
+		}
+
 		return nil
 	  },
 	},
@@ -102,6 +132,31 @@ func main() {
 
 	app.Run(os.Args)
   
+}
+
+//deploy ulapph cloud desktop
+func deployUlapphCloudDesktop(project, account, yaml string) (err error) {
+	//gcloud --project=deathlake-fly --account=demo.ulapph@gmail.com --verbosity=info --quiet app deploy app.yaml
+	app := "gcloud"
+    	arg1 := fmt.Sprintf("--project=%v", project)
+    	arg2 := fmt.Sprintf("--account=%v", account)
+    	arg3 := fmt.Sprintf("--verbosity=info")
+    	arg4 := fmt.Sprintf("--quiet")
+    	arg5 := fmt.Sprintf("app")
+    	arg6 := fmt.Sprintf("deploy")
+	arg7 := fmt.Sprintf("%v", yaml)
+	
+    	cmd := exec.Command(app, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+    	stdout, err := cmd.Output()
+
+    	if err != nil {
+        	println(err.Error())
+        	stdout = []byte(err.Error())
+        	return
+    	}
+	print(string(stdout))	
+	fmt.Printf("\n+ Deployment logs... \n%v ", stdout)
+	return err
 }
 
 //install ulapph cloud desktop
