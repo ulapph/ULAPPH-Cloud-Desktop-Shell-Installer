@@ -250,5 +250,49 @@ configs:
 
 - Other configurations are optional...
 
+## What if I need to install/upgrade multiple projects?
+- You may create a script similar below:
+
+```
+	#!/bin/sh
+	#A script for installing or upgrading multiple ULAPPH sites in one script
+	#For each target project ID, execute configure and install
+
+	#Home Directory where this script is located
+	#Under this directory, we should find the following folders
+	# ULAPPH-Cloud-Desktop-Configs/ - contains configurations for each project
+	# /ULAPPH-Cloud-Desktop-1/ - contains the source codes of ULAPPH Cloud Desktop
+	HOME=/home/ulapph
+
+	#Admin Email
+	EMAIL=admin@gmail.com
+	echo 'Installing all ulapph sites...'
+
+	#Install Project
+	#----------------
+	PROJECT_ID=myproject1
+	echo "Configuring project: " $PROJECT_ID
+	cd ULAPPH-Cloud-Desktop-Configs/
+	ulapphctl --config $PROJECT_ID.yaml configure
+	echo "Installing project: " $PROJECT_ID
+	cd ../ULAPPH-Cloud-Desktop-1/
+	ulapphctl --account $EMAIL --project $PROJECT_ID --yaml app.yaml deploy
+	echo "Cleaning up project: " $PROJECT_ID
+	ulapphctl devstart
+
+	#Install Project
+	PROJECT_ID=myproject2
+	echo "Configuring project: " $PROJECT_ID
+	cd $HOME/ULAPPH-Cloud-Desktop-Configs/
+	ulapphctl --config $PROJECT_ID.yaml configure
+	echo "Installing project: " $PROJECT_ID
+	cd $HOME/ULAPPH-Cloud-Desktop-1/
+	ulapphctl --account $EMAIL --project $PROJECT_ID --yaml app.yaml deploy
+	echo "Cleaning up project: " $PROJECT_ID
+	ulapphctl devstart
+
+```
+
+
 ## Contacts
 - Gmail account: edwin.d.vinas@gmail.com
