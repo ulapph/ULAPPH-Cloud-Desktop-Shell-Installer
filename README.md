@@ -293,6 +293,9 @@ configs:
 
 ```
 
+## Is there a quick way to code/edit and re-install ULAPPH?
+- Yes, you can use the quick install script below. It only takes one command to install a new code.
+	https://github.com/ulapph/quick-install-ulapph
 
 ## Contacts
 - Gmail account: edwin.d.vinas@gmail.com
