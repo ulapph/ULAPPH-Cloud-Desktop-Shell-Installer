@@ -19,17 +19,17 @@ configs:
    - item: ADMIN_ACCOUNT
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: EMAIL_ADD_1
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: EMAIL_ADD_2
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: EMAIL_ADD_3
      format: Text
