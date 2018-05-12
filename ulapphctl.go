@@ -5,25 +5,31 @@
 // COPYRIGHT (c) 2017-2018 Accenture, Opensource Version
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //REV ID: 	D0001
-//REV DATE: 	2017-Feb-10
+//REV DATE: 2017-Feb-10
 //REV DESC:	Created initial installer via Google Cloud Shell
 //REV AUTH:	Edwin D. Vinas
 //REV_REF:	https://github.com/jinzhu/configor
 /////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
 //REV ID: 	D0002
-//REV DATE: 	2017-Feb-13
+//REV DATE: 2017-Feb-13
 //REV DESC:	Added developer commands
 //REV AUTH:	Edwin D. Vinas
-/////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //REV ID: 	D0003
-//REV DATE: 	2017-Feb-21
+//REV DATE: 2017-Feb-21
 //REV DESC:	Added developer commands
 //REV AUTH:	Edwin D. Vinas
 /////////////////////////////////////////////////////////////////////////////////////////////////
+//REV ID: 	D0004
+//REV DATE: 2017-Mar-25
+//REV DESC:	Also print comments 
+//REV AUTH:	Edwin D. Vinas
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// ulapphctl --config "../ULAPPH-Cloud-Desktop-Configs/edwin-daen-vinas.yaml" install
+//REV ID: 	D0005
+//REV DATE: 2018-May-12
+//REV DESC:	Also replace demo.ulapph@gmail.com with the admin email 
+//REV AUTH:	Edwin D. Vinas
+/////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 package main
@@ -690,71 +696,78 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 	configor.Load(&Config, CFG_FILE)
 	//fmt.Printf("config: %#v", Config)
 	fmt.Printf("app_id: %#v", Config.Project[0].Appid)
-	
+
 	//-----------------------------
 	//Backup main.go
 	bar.Increment()
 	time.Sleep(time.Microsecond)
 	//fmt.Printf("\n+ Backup main.go to main2.go...  ")
-    	app := "cp"
+	app := "cp"
 	//currenttime := time.Now().Local()
 	//TSTMP := currenttime.Format("2006-01-02-15-04-05")	
-    	arg1 := Config.Installer[0].Dir+"/main.go"
-    	//arg2 := Config.Installer[0].Dir+"/main.go"+"."+TSTMP
+	arg1 := Config.Installer[0].Dir+"/main.go"
+	//arg2 := Config.Installer[0].Dir+"/main.go"+"."+TSTMP
 	arg2 := Config.Installer[0].Dir+"/main.go.backup"
-	
-    	cmd := exec.Command(app, arg1, arg2)
-    	_, err = cmd.Output()
 
-    	if err != nil {
+	cmd := exec.Command(app, arg1, arg2)
+	_, err = cmd.Output()
+
+	if err != nil {
         println(err.Error())
         return
-    	} else {
+	} else {
 		//stdout = []byte("ok\n")
 	}
 	//print(string(stdout))
-	
+
 	//-----------------------------
 	//Configuring installation
 	bar.Increment()
 	time.Sleep(time.Microsecond)
 	//fmt.Printf("\n+ Customizing main.go...  ")
-    	file, err := os.Open(Config.Installer[0].Dir+"/main.go")
-    	if err != nil {
+	file, err := os.Open(Config.Installer[0].Dir+"/main.go")
+	if err != nil {
         log.Fatal(err)
 		//stdout = []byte(fmt.Sprintf("%v",err))
-    	} else {
+	} else {
 		//stdout = []byte("ok\n")
 	}
 	//print(string(stdout))
-    	defer file.Close()
+	defer file.Close()
 
-    	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(file)
 	lineCtr := 0
-	
+
 	//write buffer
 	var buf bytes.Buffer
 	//FL_VALID_FILE := false
 	FL_START_CUST_CONFIGS := false
 	FL_END_CUST_CONFIGS := false
 	ERR1CTR := 0
-	buf.WriteString("//ULAPPH Cloud Desktop\n")
-	buf.WriteString(fmt.Sprintf("//Auto-generated codes for %v\n", Config.Project[0].Appid))
-	
-    	for scanner.Scan() {
-    		FL_WRITTEN_OK := false
-    		
+	//buf.WriteString("//ULAPPH Cloud Desktop\n")
+	//buf.WriteString(fmt.Sprintf("//Auto-generated codes for %v\n", Config.Project[0].Appid))
+
+	for scanner.Scan() {
+		FL_WRITTEN_OK := false
+
 			lineCtr++
 			sLineText := scanner.Text()
+			//D005
+			i := strings.Index(sLineText, "demo.ulapph@gmail.com")
+			if i != -1 {
+				configValue := getFromConfig("ADMIN_ACCOUNT")
+				sLineText = strings.Replace(sLineText, "demo.ulapph@gmail.com", configValue, -1)
+			}
+
 			//if PB_STARTED == true {
 			if lineCtr > 10000 {
 				bar.Increment()
-				time.Sleep(time.Microsecond)				
+				time.Sleep(time.Microsecond)
 			} else {
 				bar.Increment()
 				time.Sleep(time.Millisecond)
 			}
-			
+
 			if lineCtr == 1 {
 				bar.Increment()
 				time.Sleep(time.Millisecond)
@@ -798,7 +811,7 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 					//FL_VALID_FILE = true
 				}
 			}
-	
+
 			if lineCtr == 3 {
 				bar.Increment()
 				time.Sleep(time.Millisecond)
@@ -818,15 +831,15 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 					//FL_VALID_FILE = true
 				}
 			}
-			
+
 			//replace all old domains w/ new domains
-			i := strings.Index(sLineText, OLD_DOMAIN_NAME)
+			i = strings.Index(sLineText, OLD_DOMAIN_NAME)
 			if i != -1 && OLD_DOMAIN_NAME != "" && NEW_DOMAIN_NAME != "" {
 				sLineText = strings.Replace(sLineText, OLD_DOMAIN_NAME, NEW_DOMAIN_NAME, -1)
 				//fmt.Printf("\nREPLACED: Old domain replaced with new!")
 				//fmt.Printf("\nNEWTEXT: %v", fmt.Sprintf("%v\n", sLineText))
 			}
-			
+
 			//--------------------------------
 			i = strings.Index(sLineText, "// !!!CONFIG-STARTS-HERE!!!")
 			if i != -1 {
@@ -836,7 +849,7 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
 				FL_START_CUST_CONFIGS = true
 			}
-			
+
 			i = strings.Index(sLineText, "// !!!CONFIG-ENDS-HERE!!!")
 			if i != -1 {
 				//-----------------------------
@@ -845,17 +858,17 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 				//fmt.Printf("\nFL_START_CUST_CONFIGS--------------------")
 				FL_END_CUST_CONFIGS = true
 			}
-			
+
 			tLineStr := fmt.Sprintf("%v", sLineText)
 			tLineStr2 := strings.TrimSpace(tLineStr)
 			if len(tLineStr2) > 2 && string(tLineStr2[0]) != "/" && string(tLineStr2[1]) != "/" {
-	
+
 				// internally, it advances token based on sperator
 				//fmt.Println(fmt.Sprintf("\nLINE: %v", lineCtr))  // token in unicode-char
 				//fmt.Println(sLineText)  // token in unicode-char
-		        	//fmt.Println(scanner.Bytes()) // token in bytes
+				//fmt.Println(scanner.Bytes()) // token in bytes
 				//FL_WRITTEN_OK := false
-		
+
 				i := strings.Index(sLineText, "<title>")
 				if i != -1 {
 					//-----------------------------
@@ -1223,7 +1236,8 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 	
 			} else {
 				if len(tLineStr2) > 2 && string(tLineStr2[0]) == "/" && string(tLineStr2[1]) == "/" {
-					//skip comments
+					//comments
+					buf.WriteString(fmt.Sprintf("%v\n", sLineText))	
 				} else {
 					buf.WriteString(fmt.Sprintf("%v\n", sLineText))	
 					//fmt.Printf("\nNEWLINE034(AS-IS): %v", sLineText)
