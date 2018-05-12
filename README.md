@@ -90,7 +90,7 @@ project:
      appid: ulapph-demo <-- your project ID
 ```
 
-- Indicate the path to the ULAPPH Cloud Desktop installer
+- Indicate the path to the ULAPPH Cloud Desktop installer. It can be "ULAPPH-Cloud-Desktop" if you did not fork
 ```
 installer:
    - dir: ../ULAPPH-Cloud-Desktop-1
