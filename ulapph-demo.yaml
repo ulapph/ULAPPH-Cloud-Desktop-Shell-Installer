@@ -74,27 +74,27 @@ configs:
    - item: ADMMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: SYSMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: ADSMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: REPMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: FDBKMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: SYS_SERVER_NAME
      format: Text
@@ -725,7 +725,7 @@ configs:
    - item: var isExceptionAccount
      format: Text
      status: InternalMatched
-     value: map[string]bool{"ulapph@gmail.com":true,}
+     value: map[string]bool{"demo.ulapph@gmail.com":true,}
 
    - item: var freeAccess
      format: Text
