@@ -876,6 +876,11 @@ configs:
      format: Text
      status: Enable
      value: AIzaSyDY93rCNZv_IXLUaz0aRWhX61234567890
+     
+   - item: SYS_ENABLE_URL_SHORTENER
+     format: Flag
+     status: Enable
+     value: false
 
    - item: YOUTUBE_DEVELOPER_KEY
      format: Text
