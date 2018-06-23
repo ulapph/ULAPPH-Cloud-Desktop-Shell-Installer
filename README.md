@@ -2,6 +2,9 @@
 # ULAPPH-Cloud-Desktop-Shell-Installer
 Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 
+## For most updated ULAPPH Cloud Desktop installation guide, refer to the link below.
+	* https://github.com/edwindvinas/ULAPPH-Cloud-Desktop/blob/master/DOCS/Installation%20Guide%20using%20Shell.md
+
 ## Pre-requisites
 - Google Cloud Shell or local Unix/Linux access
 - A Google account such as Gmail
