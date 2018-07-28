@@ -2,9 +2,6 @@ project:
    - name: ULAPPH Cloud Desktop
      appid: ulapph-demo
 
-installer:
-   - dir: ../ULAPPH-Cloud-Desktop-1
-
 configs: 
    - item: APP_URL
      format: Text
@@ -695,17 +692,17 @@ configs:
    - item: <title>
      format: Text
      status: InternalMatched
-     value: ULAPPH - Demo - ULAPPH Cloud Desktop
+     value: ULAPPH Demo - ULAPPH Cloud Desktop
 
    - item: <meta description>
      format: Text
      status: InternalMatched
-     value: ULAPPH Cloud Desktop of Demo Project
+     value: ULAPPH Cloud Desktop
 
    - item: <meta keywords>
      format: Text
      status: InternalMatched
-     value: ULAPPH - Demo Cloud Desktop
+     value: ULAPPH Cloud Desktop
 
    - item: INFO_ABOUT_US
      format: Text
