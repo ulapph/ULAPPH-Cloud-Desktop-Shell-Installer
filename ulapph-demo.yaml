@@ -1,4 +1,3 @@
-swagger: "2.0"
 project:
    - name: ULAPPH Cloud Desktop
      appid: ulapph-demo
