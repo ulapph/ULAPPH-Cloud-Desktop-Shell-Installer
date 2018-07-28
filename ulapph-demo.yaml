@@ -707,7 +707,7 @@ configs:
    - item: INFO_ABOUT_US
      format: Text
      status: Enable
-     value: This is a demo project powered by ULAPPH Cloud Desktop!
+     value: This is a cloud desktop powered by ULAPPH Cloud Desktop!
 
    - item: SITE_SLOGAN
      format: Text
