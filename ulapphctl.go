@@ -2,7 +2,7 @@
 // ULAPPH CLOUD DESKTOP SYSTEM
 // ULAPPH Cloud Desktop is a web-based desktop that runs on Google cloud platform and accessible via browsers on different PC and mobile devices.
 // COPYRIGHT (c) 2014-2017 Edwin D. Vinas, Ulapph Cloud Desktop System
-// COPYRIGHT (c) 2017-2018 Accenture, Opensource Version
+// COPYRIGHT (c) 2017-2019 Accenture, Opensource Version
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //REV ID: 	D0001
 //REV DATE: 2017-Feb-10
@@ -28,6 +28,11 @@
 //REV ID: 	D0005
 //REV DATE: 2018-May-12
 //REV DESC:	Also replace demo.ulapph@gmail.com with the admin email 
+//REV AUTH:	Edwin D. Vinas
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//REV ID: 	D0006
+//REV DATE: 2019-Aug-17
+//REV DESC:	Support dynamic favicon 
 //REV AUTH:	Edwin D. Vinas
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,9 +298,10 @@ func devCommitUlapphCloudDesktop() (err error) {
 		return
 	} else {
 		print(string("OK: valid main.go You can manually remove other main.* files and execute commamds!"))
-		print(string("\nrm main2*"))
-		print(string("\nrm main.go.backup"))
-		print(string("\ngit add --all"))
+		//print(string("\nrm main2*"))
+		print(string("\nrm main.go.backup && rm main.go.backup && git add --all"))
+		//print(string("\nrm main.go.backup"))
+		//print(string("\ngit add --all"))
 		print(string("\ngit commit -m MESSAGE"))
 		print(string("\ngit push origin master"))
 	}	
@@ -881,35 +887,45 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 					//print(string("ok\n"))
 					FL_WRITTEN_OK = true
 				}
-				
+				i = strings.Index(sLineText, "ULAPPH_DEFAULT_FAVICON")
+				if i != -1 {
+					//-----------------------------
+					//Configuring installation
+					//fmt.Printf("\n++ Processing ULAPPH_DEFAULT_FAVICON...  ")
+					//replace
+					configValue := getFromConfig("DEFAULT_FAVICON")
+					lineText := strings.Replace(sLineText, "ULAPPH_DEFAULT_FAVICON", configValue, -1)
+					buf.WriteString(fmt.Sprintf("%v\n", lineText))
+					//fmt.Printf("\nNEWLINE004: %v", fmt.Sprintf("%v\n", lineText))
+					//print(string("ok\n"))
+					FL_WRITTEN_OK = true
+				}
 				i = strings.Index(sLineText, "ULAPPH_META_DESCRIPTION_CONTENT")
 				if i != -1 {
 					//-----------------------------
 					//Configuring installation
 					//fmt.Printf("\n++ Processing ULAPPH_META_DESCRIPTION_CONTENT...  ")
 					//replace
-					configValue := getFromConfig("INFO_ABOUT_US")		
+					configValue := getFromConfig("INFO_ABOUT_US")
 					lineText := strings.Replace(sLineText, "ULAPPH_META_DESCRIPTION_CONTENT", configValue, -1)
 					buf.WriteString(fmt.Sprintf("%v\n", lineText))
 					//fmt.Printf("\nNEWLINE004: %v", fmt.Sprintf("%v\n", lineText))
 					//print(string("ok\n"))
 					FL_WRITTEN_OK = true
 				}
-				
 				i = strings.Index(sLineText, "ULAPPH_META_KEYWORDS_CONTENT")
 				if i != -1 {
 					//-----------------------------
 					//Configuring installation
 					//fmt.Printf("\n++ Processing ULAPPH_META_KEYWORDS_CONTENT...  ")
 					//replace
-					configValue := getFromConfig("<meta keywords>")		
+					configValue := getFromConfig("<meta keywords>")
 					lineText := strings.Replace(sLineText, "ULAPPH_META_KEYWORDS_CONTENT", configValue, -1)
 					buf.WriteString(fmt.Sprintf("%v\n", lineText))
 					//fmt.Printf("\nNEWLINE005: %v", fmt.Sprintf("%v\n", lineText))
 					//print(string("ok\n"))
 					FL_WRITTEN_OK = true
 				}
-				
 				i = strings.Index(sLineText, "var isExceptionAccount")
 				if i != -1 {
 					//-----------------------------
@@ -1193,6 +1209,17 @@ func configureUlapphCloudDesktop(CFG_FILE string) (err error) {
 									//fmt.Printf("\nNEWLINE029: %v", fmt.Sprintf("    %v = %v\n", cfg.Item, num))
 								case "Text":
 									if cfg.Item == "FIREBASE_SERVER_JSON" {
+										//read file and append
+										b, err := ioutil.ReadFile(cfg.Value) // just pass the file name
+										if err != nil {
+											//fmt.Print(err)
+											fmt.Printf("\nERROR: %v", err)
+											panic(err)
+											break
+										}
+										buf.WriteString(fmt.Sprintf("    %v = `%v`\n", cfg.Item, string(b)))
+										//fmt.Printf("\nNEWLINE030: %v", fmt.Sprintf("    %v = `%v`\n", cfg.Item, string(b)))
+									} else if cfg.Item == "AUTOML_SERVER_JSON" {
 										//read file and append
 										b, err := ioutil.ReadFile(cfg.Value) // just pass the file name
 										if err != nil {

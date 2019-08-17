@@ -27,6 +27,12 @@ Basic installer for ULAPPH Cloud Desktop using Google Cloud Shell
 	go install ulapphctl.go
 	which ulapphctl
 	/home/ulapph/gopath/bin/ulapphctl
+
+	** if go install does not work
+	go build ulapphctl.go
+	which ulapphctl
+	cp ulapphctl <location of Go bin>
+
 	ulapphctl help
 	
 	NAME:

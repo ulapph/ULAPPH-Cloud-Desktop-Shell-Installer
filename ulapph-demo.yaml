@@ -477,6 +477,11 @@ configs:
      status: Enable
      value: 1000
 
+   - item: DEFAULT_FAVICON
+     format: Text
+     status: Enable
+     value: /img/favicon.ico 
+
    - item: DEFAULT_RING_TONE
      format: Text
      status: Enable
@@ -891,6 +896,11 @@ configs:
      format: Text
      status: Enable
      value: ../ULAPPH-Cloud-Desktop-Configs/ulapph-firebase-153e4ca29b86.json
+
+   - item: AUTOML_SERVER_JSON
+     format: Text
+     status: Enable
+     value: ../ULAPPH-Cloud-Desktop-Configs/ulapph-automl.json
 
    - item: GOOGLE_OAUTH2_CLIENTID
      format: Text
