@@ -74,27 +74,27 @@ configs:
    - item: ADMMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: SYSMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: ADSMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: REPMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: FDBKMAIL
      format: Text
      status: Enable
-     value: ulapph@gmail.com
+     value: demo.ulapph@gmail.com
 
    - item: SYS_SERVER_NAME
      format: Text
@@ -700,22 +700,22 @@ configs:
    - item: <title>
      format: Text
      status: InternalMatched
-     value: ULAPPH - Demo - ULAPPH Cloud Desktop
+     value: ULAPPH Demo - ULAPPH Cloud Desktop
 
    - item: <meta description>
      format: Text
      status: InternalMatched
-     value: ULAPPH Cloud Desktop of Demo Project
+     value: ULAPPH Cloud Desktop
 
    - item: <meta keywords>
      format: Text
      status: InternalMatched
-     value: ULAPPH - Demo Cloud Desktop
+     value: ULAPPH Cloud Desktop
 
    - item: INFO_ABOUT_US
      format: Text
      status: Enable
-     value: This is a demo project powered by ULAPPH Cloud Desktop!
+     value: This is a cloud desktop powered by ULAPPH Cloud Desktop!
 
    - item: SITE_SLOGAN
      format: Text
@@ -730,7 +730,7 @@ configs:
    - item: var isExceptionAccount
      format: Text
      status: InternalMatched
-     value: map[string]bool{"ulapph@gmail.com":true,}
+     value: map[string]bool{"demo.ulapph@gmail.com":true,}
 
    - item: var freeAccess
      format: Text
@@ -881,6 +881,11 @@ configs:
      format: Text
      status: Enable
      value: AIzaSyDY93rCNZv_IXLUaz0aRWhX61234567890
+     
+   - item: SYS_ENABLE_URL_SHORTENER
+     format: Flag
+     status: Enable
+     value: false
 
    - item: YOUTUBE_DEVELOPER_KEY
      format: Text
