@@ -385,7 +385,7 @@ configs:
    - item: SYS_DISP_LOGO
      format: Text
      status: Enable
-     value: http://lh3.googleusercontent.com/lj4uOs3pT_h4R0iZSDUWBuRftqvKrp71rNes8hHeBA0TMaIRnLOQVBf3Azm9ff9JRah6x8YHV_HV-VkImUGdm_OZJcBVOQ
+     value: /img/banaosystems-login256.png 
 
    - item: SYS_SYNC_NOTE_MAIL
      format: Flag

@@ -298,10 +298,10 @@ func devCommitUlapphCloudDesktop() (err error) {
 		return
 	} else {
 		print(string("OK: valid main.go You can manually remove other main.* files and execute commamds!"))
-		//print(string("\nrm main2*"))
-		print(string("\nrm main.go.backup && rm main.go.backup && git add --all"))
-		//print(string("\nrm main.go.backup"))
-		//print(string("\ngit add --all"))
+		//print(string("\nrm main.go.backup && rm main.go.backup && git add --all"))
+		print(string("\nrm main2*"))
+		print(string("\nrm main.go.backup"))
+		print(string("\ngit add --all"))
 		print(string("\ngit commit -m MESSAGE"))
 		print(string("\ngit push origin master"))
 	}	
